@@ -1,2 +1,2 @@
 # digisault
-Test Repository for stories and other documents
+Repository for Table-Top RPG related things
