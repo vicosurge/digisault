@@ -1,0 +1,111 @@
+:npcdir: npc/
+:kueljin: {npcdir}/kueljin/
+:gangrel: {npcdir}/gangrel/
+:nosferatu: {npcdir}/nosferatu/
+:toreador: {npcdir}/toreador/
+:giovanni: {npcdir}/giovanni/
+:brujah: {npcdir}/brujah/
+:ventrue: {npcdir}/ventrue/
+:lasombra: {npcdir}/lasombra/
+:tremere: {npcdir}/tremere/
+:malkavian: {npcdir}/malkavian/
+:tzimisce: {npcdir}/tzimisce/
+:fallen: {npcdir}/fallen/
+
+= Vampire: The Masquerade - Venice in Flames
+Vicente Manuel Munoz Milchorena <vicente.mm.milchorena@gmail.com>
+v1.0, 2021-09-04 (Original somewhere in 2018)
+:toc:
+:toclevels: 5
+
+== Introduction to Setting
+This document contains information about the characters seen during the
+campaign held in Venice during a period in which it was still flourishing.
+
+== NPC
+
+include::{npcdir}/emil-caen-rodolfo-flanders.adoc[Emil of Caen and Rodolfo of Flanders]
+include::{npcdir}/renee-ferdinand-antoine.adoc[Renee Ferdinand Antoine]
+include::{npcdir}/francesca.adoc[Francesca]
+include::{kueljin}/il-kim-yuk.adoc[Il-Kim-Yuk]
+
+=== Gangrel
+
+include::{gangrel}/elim.adoc[Elim]
+include::{gangrel}/sigismund.adoc[Sigismund]
+
+=== Nosferatu
+
+include::{nosferatu}/bel-antonio-de-florence.adoc[Bel Antonio de Florence]
+include::{nosferatu}/armand.adoc[Armand]
+
+=== Toreador
+
+include::{toreador}/odo.adoc[Odo]
+
+include::{toreador}/toto.adoc[Toto]
+
+include::{toreador}/fabriccio.adoc[Fabriccio]
+
+include::{toreador}/maria-de-bordeaux.adoc[Maria de Bordeaux]
+
+include::{toreador}/antonio-marcollini.adoc[Master Antonio Marcollini]
+
+include::{toreador}/anselmo.adoc[Anselmo, the Violin Maker]
+
+include::{toreador}/osprey-duke-orleans.adoc[Osprey, Duke of Orleans]
+
+=== Giovanni
+
+include::{giovanni}/ambrosio.adoc[Ambrosio Giovanni]
+
+include::{giovanni}/donatello.adoc[Donatello Giovanni]
+
+include::{giovanni}/grigorio.adoc[Grigorio Giovanni]
+
+include::{giovanni}/antonieta.adoc[Antonieta Giovanni]
+
+=== Brujah
+
+include::{brujah}/clemens.adoc[Clemens Antonio of Mantua]
+
+include::{brujah}/rigoberto.adoc[Rigoberto di Formo]
+
+=== Ventrue
+
+include::{ventrue}/prince-alberto.adoc[Former Prince Alberto of Venice]
+
+include::{ventrue}/angelo-di-strada.adoc[Primogen Angelo di Strada]
+
+include::{ventrue}/selina-de-agincourt.adoc[Selina de Agincourt]
+
+include::{ventrue}/celso-brioni.adoc[Celso Brioni]
+
+
+=== Lasombra
+
+include::{lasombra}/ricardo-de-castilla.adoc[Ricardo de Castilla]
+
+include::{lasombra}/mario-lozano.adoc[Father Mario Lozano Matamoros]
+
+include::{lasombra}/emmanuel-ponce-ramirez.adoc[Emmanuel de Ponce y Ramirez]
+
+=== Tremere
+
+include::{tremere}/maximilian-ferdinand.adoc[Maximilian Ferdinand of Cologne]
+
+=== Malkavian
+
+include::{malkavian}/califas-athens.adoc[Califas of Athens]
+
+=== Tzimisce
+
+include::{tzimisce}/masked-one.adoc[The Masked One]
+
+=== The Fallen
+
+include::{fallen}/isabelle-faustine.adoc[Isabelle Anais Faustine (Androlieth)]
+
+include::{fallen}/trapped.adoc[That which is trapped]
+
+include::{fallen}/lazathiel.adoc[Antonio Bartolomeo Lazaro di Genoa (Lazathiel)]
