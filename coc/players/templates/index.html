@@ -4,137 +4,715 @@
   <meta charset="UTF-8">
   <title>Call of Cthulhu 7e Character Sheet</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+    
     body {
-      font-family: Arial, sans-serif;
-      background: #1a1a1a;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
       color: #eee;
-      margin: 20px;
+      margin: 0;
       padding: 20px;
+      min-height: 100vh;
     }
-    h1, h2 {
-      color: #e0b000;
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: rgba(42, 42, 42, 0.9);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     }
-    label {
-      display: block;
-      margin-top: 10px;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 5px;
-      margin-top: 5px;
-      border: 1px solid #555;
-      background-color: #2a2a2a;
-      color: white;
-    }
-    .section {
+    
+    h1 {
+      color: #d4af37;
+      text-align: center;
+      font-size: 2.5em;
       margin-bottom: 30px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    
+    h2 {
+      color: #e0b000;
+      border-bottom: 2px solid #e0b000;
+      padding-bottom: 5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
       gap: 10px;
     }
+    
+    .collapsible::before {
+      content: '▼';
+      transition: transform 0.3s ease;
+    }
+    
+    .collapsible.collapsed::before {
+      transform: rotate(-90deg);
+    }
+    
+    .section {
+      margin-bottom: 25px;
+      border: 1px solid #555;
+      border-radius: 8px;
+      padding: 20px;
+      background: rgba(35, 35, 35, 0.8);
+    }
+    
+    .section-content {
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    
+    .section-content.collapsed {
+      max-height: 0;
+      padding: 0;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    
+    input, textarea, select {
+      width: 100%;
+      padding: 8px 12px;
+      margin-top: 4px;
+      border: 1px solid #666;
+      border-radius: 4px;
+      background-color: #3a3a3a;
+      color: white;
+      font-size: 14px;
+      transition: border-color 0.3s ease;
+    }
+    
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: #e0b000;
+      box-shadow: 0 0 5px rgba(224, 176, 0, 0.3);
+    }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 15px;
+    }
+    
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+    }
+    
+    .derived-stat {
+      background-color: #4a4a4a;
+      border: 2px solid #666;
+    }
+    
+    .derived-stat:read-only {
+      background-color: #555;
+      cursor: not-allowed;
+    }
+    
+    button {
+      background: linear-gradient(145deg, #e0b000, #b8900a);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      margin: 5px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    button:hover {
+      background: linear-gradient(145deg, #f0c010, #c8a00a);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    }
+    
+    button:active {
+      transform: translateY(0);
+    }
+    
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    
+    .status-message {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 15px 20px;
+      border-radius: 6px;
+      color: white;
+      font-weight: bold;
+      z-index: 1000;
+      transform: translateX(400px);
+      transition: transform 0.3s ease;
+    }
+    
+    .status-message.show {
+      transform: translateX(0);
+    }
+    
+    .status-message.success {
+      background: #28a745;
+    }
+    
+    .status-message.error {
+      background: #dc3545;
+    }
+    
+    .character-list {
+      max-height: 200px;
+      overflow-y: auto;
+      border: 1px solid #666;
+      border-radius: 4px;
+      background: #2a2a2a;
+    }
+    
+    .character-item {
+      padding: 10px;
+      border-bottom: 1px solid #555;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    
+    .character-item:hover {
+      background-color: #3a3a3a;
+    }
+    
+    .character-item:last-child {
+      border-bottom: none;
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 15px;
+        margin: 10px;
+      }
+      
+      .grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 10px;
+      }
+      
+      h1 {
+        font-size: 2em;
+      }
+      
+      .button-group {
+        justify-content: stretch;
+      }
+      
+      button {
+        flex: 1;
+      }
+    }
+    
     @media print {
       body {
         background: white;
         color: black;
       }
-      input, textarea {
-        border: none;
-        background: none;
+      
+      .container {
+        background: white;
+        box-shadow: none;
+        padding: 10px;
+      }
+      
+      input, textarea, select {
+        border: 1px solid #333;
+        background: white;
         color: black;
       }
-      button {
+      
+      button, .button-group {
+        display: none;
+      }
+      
+      .section {
+        border: 1px solid #333;
+        background: white;
+        break-inside: avoid;
+      }
+      
+      h1, h2 {
+        color: #333;
+      }
+      
+      .section-content.collapsed {
+        max-height: none;
+        padding: 20px;
+      }
+      
+      .collapsible::before {
         display: none;
       }
     }
   </style>
-  <script defer src="{{ url_for('static', filename='script.js') }}"></script>
 </head>
 <body>
-  <h1>Call of Cthulhu 7th Edition</h1>
-  <form>
-    <div class="section">
-      <h2>Investigator Info</h2>
-      <label>Name: <input type="text" name="name"></label>
-      <label>Occupation: <input type="text" name="occupation"></label>
-      <label>Age: <input type="number" name="age"></label>
-      <label>Sex: <input type="text" name="sex"></label>
-      <label>Residence: <input type="text" name="residence"></label>
-      <label>Birthplace: <input type="text" name="birthplace"></label>
-    </div>
-
-    <div class="section">
-      <h2 class="collapsible">Characteristics</h2>
-      <div class="grid">
-        <label>STR: <input type="number" name="str"></label>
-        <label>DEX: <input type="number" name="dex"></label>
-        <label>INT: <input type="number" name="int"></label>
-        <label>CON: <input type="number" name="con"></label>
-        <label>APP: <input type="number" name="app"></label>
-        <label>POW: <input type="number" name="pow"></label>
-        <label>SIZ: <input type="number" name="siz"></label>
-        <label>EDU: <input type="number" name="edu"></label>
-        <label>Luck: <input type="number" name="luck"></label>
+  <div class="container">
+    <h1>Call of Cthulhu 7th Edition Character Sheet</h1>
+    
+    <form id="characterForm">
+      <!-- Basic Info Section -->
+      <div class="section">
+        <h2 class="collapsible">Investigator Information</h2>
+        <div class="section-content">
+          <div class="grid-2">
+            <label>Name: <input type="text" name="name" id="charName" required></label>
+            <label>Player: <input type="text" name="player"></label>
+            <label>Occupation: <input type="text" name="occupation"></label>
+            <label>Archetype: <input type="text" name="archetype"></label>
+            <label>Age: <input type="number" name="age" min="15" max="100"></label>
+            <label>Sex: <input type="text" name="sex"></label>
+            <label>Residence: <input type="text" name="residence"></label>
+            <label>Birthplace: <input type="text" name="birthplace"></label>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <div class="section">
-      <h2>Skills (Sample)</h2>
-      <div class="grid">
-        <label>Spot Hidden: <input type="number" name="spot_hidden"></label>
-        <label>Library Use: <input type="number" name="library_use"></label>
-        <label>Psychology: <input type="number" name="psychology"></label>
-        <label>Stealth: <input type="number" name="stealth"></label>
-        <label>Occult: <input type="number" name="occult"></label>
-        <label>Firearms (Handgun): <input type="number" name="firearms_handgun"></label>
+      <!-- Characteristics Section -->
+      <div class="section">
+        <h2 class="collapsible">Characteristics</h2>
+        <div class="section-content">
+          <div class="grid">
+            <label>STR (Strength): <input type="number" name="str" class="characteristic" min="0" max="100"></label>
+            <label>DEX (Dexterity): <input type="number" name="dex" class="characteristic" min="0" max="100"></label>
+            <label>INT (Intelligence): <input type="number" name="int" class="characteristic" min="0" max="100"></label>
+            <label>CON (Constitution): <input type="number" name="con" class="characteristic" min="0" max="100"></label>
+            <label>APP (Appearance): <input type="number" name="app" class="characteristic" min="0" max="100"></label>
+            <label>POW (Power): <input type="number" name="pow" class="characteristic" min="0" max="100"></label>
+            <label>SIZ (Size): <input type="number" name="siz" class="characteristic" min="0" max="100"></label>
+            <label>EDU (Education): <input type="number" name="edu" class="characteristic" min="0" max="100"></label>
+            <label>Luck: <input type="number" name="luck" min="0" max="100"></label>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <div class="section">
-      <h2>Backstory</h2>
-      <label>Personal Description:
-        <textarea name="personal_description" rows="3"></textarea>
-      </label>
-      <label>Ideology/Beliefs:
-        <textarea name="beliefs" rows="3"></textarea>
-      </label>
-      <label>Significant People:
-        <textarea name="significant_people" rows="3"></textarea>
-      </label>
-      <label>Meaningful Locations:
-        <textarea name="locations" rows="3"></textarea>
-      </label>
-      <label>Treasured Possessions:
-        <textarea name="possessions" rows="3"></textarea>
-      </label>
-      <label>Traits:
-        <textarea name="traits" rows="3"></textarea>
-      </label>
-    </div>
-
-    <div class="section">
-      <h2>Combat & Health</h2>
-      <div class="grid">
-        <label>HP: <input type="number" name="hp"></label>
-        <label>Sanity: <input type="number" name="sanity"></label>
-        <label>MP (Magic Points): <input type="number" name="mp"></label>
-        <label>Damage Bonus: <input type="text" name="damage_bonus"></label>
-        <label>Build: <input type="number" name="build"></label>
-        <label>Move Rate: <input type="number" name="move"></label>
+      <!-- Derived Attributes Section -->
+      <div class="section">
+        <h2 class="collapsible">Derived Attributes</h2>
+        <div class="section-content">
+          <div class="grid">
+            <label>Hit Points: <input type="number" name="hp" class="derived-stat" readonly></label>
+            <label>Sanity: <input type="number" name="sanity" class="derived-stat" readonly></label>
+            <label>Magic Points: <input type="number" name="mp" class="derived-stat" readonly></label>
+            <label>Damage Bonus: <input type="text" name="damage_bonus" class="derived-stat" readonly></label>
+            <label>Build: <input type="number" name="build" class="derived-stat" readonly></label>
+            <label>Move Rate: <input type="number" name="move" class="derived-stat" readonly></label>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <div class="section">
-      <button type="button" id="save">💾 Save</button>
-      <button type="button" id="load">📂 Load</button>
-      <button type="button" id="print">🖨️ Print</button>
-    </div>
+      <!-- Skills Section -->
+      <div class="section">
+        <h2 class="collapsible">Skills</h2>
+        <div class="section-content">
+          <div class="grid">
+            <label>Accounting: <input type="number" name="accounting" min="0" max="100"></label>
+            <label>Anthropology: <input type="number" name="anthropology" min="0" max="100"></label>
+            <label>Appraise: <input type="number" name="appraise" min="0" max="100"></label>
+            <label>Archaeology: <input type="number" name="archaeology" min="0" max="100"></label>
+            <label>Art/Craft: <input type="number" name="art_craft" min="0" max="100"></label>
+            <label>Charm: <input type="number" name="charm" min="0" max="100"></label>
+            <label>Climb: <input type="number" name="climb" min="0" max="100"></label>
+            <label>Computer Use: <input type="number" name="computer_use" min="0" max="100"></label>
+            <label>Credit Rating: <input type="number" name="credit_rating" min="0" max="100"></label>
+            <label>Cthulhu Mythos: <input type="number" name="cthulhu_mythos" min="0" max="100"></label>
+            <label>Disguise: <input type="number" name="disguise" min="0" max="100"></label>
+            <label>Dodge: <input type="number" name="dodge" min="0" max="100"></label>
+            <label>Drive Auto: <input type="number" name="drive_auto" min="0" max="100"></label>
+            <label>Electrical Repair: <input type="number" name="electrical_repair" min="0" max="100"></label>
+            <label>Electronics: <input type="number" name="electronics" min="0" max="100"></label>
+            <label>Fast Talk: <input type="number" name="fast_talk" min="0" max="100"></label>
+            <label>Fighting (Brawl): <input type="number" name="fighting_brawl" min="0" max="100"></label>
+            <label>Firearms (Handgun): <input type="number" name="firearms_handgun" min="0" max="100"></label>
+            <label>Firearms (Rifle): <input type="number" name="firearms_rifle" min="0" max="100"></label>
+            <label>First Aid: <input type="number" name="first_aid" min="0" max="100"></label>
+            <label>History: <input type="number" name="history" min="0" max="100"></label>
+            <label>Intimidate: <input type="number" name="intimidate" min="0" max="100"></label>
+            <label>Jump: <input type="number" name="jump" min="0" max="100"></label>
+            <label>Language (Other): <input type="number" name="language_other" min="0" max="100"></label>
+            <label>Law: <input type="number" name="law" min="0" max="100"></label>
+            <label>Library Use: <input type="number" name="library_use" min="0" max="100"></label>
+            <label>Listen: <input type="number" name="listen" min="0" max="100"></label>
+            <label>Locksmith: <input type="number" name="locksmith" min="0" max="100"></label>
+            <label>Mechanical Repair: <input type="number" name="mechanical_repair" min="0" max="100"></label>
+            <label>Medicine: <input type="number" name="medicine" min="0" max="100"></label>
+            <label>Natural World: <input type="number" name="natural_world" min="0" max="100"></label>
+            <label>Navigate: <input type="number" name="navigate" min="0" max="100"></label>
+            <label>Occult: <input type="number" name="occult" min="0" max="100"></label>
+            <label>Operate Heavy Machinery: <input type="number" name="operate_heavy" min="0" max="100"></label>
+            <label>Persuade: <input type="number" name="persuade" min="0" max="100"></label>
+            <label>Pilot: <input type="number" name="pilot" min="0" max="100"></label>
+            <label>Psychology: <input type="number" name="psychology" min="0" max="100"></label>
+            <label>Psychoanalysis: <input type="number" name="psychoanalysis" min="0" max="100"></label>
+            <label>Ride: <input type="number" name="ride" min="0" max="100"></label>
+            <label>Science: <input type="number" name="science" min="0" max="100"></label>
+            <label>Sleight of Hand: <input type="number" name="sleight_of_hand" min="0" max="100"></label>
+            <label>Spot Hidden: <input type="number" name="spot_hidden" min="0" max="100"></label>
+            <label>Stealth: <input type="number" name="stealth" min="0" max="100"></label>
+            <label>Survival: <input type="number" name="survival" min="0" max="100"></label>
+            <label>Swim: <input type="number" name="swim" min="0" max="100"></label>
+            <label>Throw: <input type="number" name="throw" min="0" max="100"></label>
+            <label>Track: <input type="number" name="track" min="0" max="100"></label>
+          </div>
+        </div>
+      </div>
 
-    <div class="section">
-      <button type="submit">Save Character</button>
-    </div>
-  </form>
+      <!-- Combat Section -->
+      <div class="section">
+        <h2 class="collapsible">Combat & Weapons</h2>
+        <div class="section-content">
+          <div class="grid-2">
+            <label>Current HP: <input type="number" name="current_hp"></label>
+            <label>Current Sanity: <input type="number" name="current_sanity"></label>
+            <label>Current MP: <input type="number" name="current_mp"></label>
+            <label>Temporary Insanity: <input type="checkbox" name="temp_insanity"></label>
+            <label>Indefinite Insanity: <input type="checkbox" name="indef_insanity"></label>
+            <label>Major Wound: <input type="checkbox" name="major_wound"></label>
+          </div>
+          
+          <h3 style="color: #e0b000; margin-top: 20px;">Weapons & Equipment</h3>
+          <div class="grid-2">
+            <label>Weapon 1: <input type="text" name="weapon1" placeholder="e.g., .38 Revolver"></label>
+            <label>Damage 1: <input type="text" name="damage1" placeholder="e.g., 1d10"></label>
+            <label>Weapon 2: <input type="text" name="weapon2" placeholder="e.g., Knife"></label>
+            <label>Damage 2: <input type="text" name="damage2" placeholder="e.g., 1d4+2"></label>
+            <label>Weapon 3: <input type="text" name="weapon3" placeholder="e.g., Fists"></label>
+            <label>Damage 3: <input type="text" name="damage3" placeholder="e.g., 1d3"></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Backstory Section -->
+      <div class="section">
+        <h2 class="collapsible">Backstory</h2>
+        <div class="section-content">
+          <div class="grid-2">
+            <label>Personal Description:
+              <textarea name="personal_description" rows="4" placeholder="Physical appearance, mannerisms, clothing style..."></textarea>
+            </label>
+            <label>Ideology/Beliefs:
+              <textarea name="beliefs" rows="4" placeholder="Religious beliefs, political views, core values..."></textarea>
+            </label>
+            <label>Significant People:
+              <textarea name="significant_people" rows="4" placeholder="Family, friends, mentors, rivals..."></textarea>
+            </label>
+            <label>Meaningful Locations:
+              <textarea name="locations" rows="4" placeholder="Hometown, workplace, favorite places..."></textarea>
+            </label>
+            <label>Treasured Possessions:
+              <textarea name="possessions" rows="4" placeholder="Important items, heirlooms, tools..."></textarea>
+            </label>
+            <label>Traits:
+              <textarea name="traits" rows="4" placeholder="Personality quirks, habits, fears..."></textarea>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Notes Section -->
+      <div class="section">
+        <h2 class="collapsible">Notes & Equipment</h2>
+        <div class="section-content">
+          <label>Equipment & Possessions:
+            <textarea name="equipment" rows="4" placeholder="List your character's equipment, money, and other possessions..."></textarea>
+          </label>
+          <label>Injuries & Scars:
+            <textarea name="injuries" rows="3" placeholder="Physical and mental trauma, scars, phobias..."></textarea>
+          </label>
+          <label>Campaign Notes:
+            <textarea name="notes" rows="4" placeholder="Important clues, contacts, story developments..."></textarea>
+          </label>
+        </div>
+      </div>
+
+      <!-- Character Management -->
+      <div class="section">
+        <h2 class="collapsible">Character Management</h2>
+        <div class="section-content">
+          <div id="characterList" class="character-list" style="display: none;">
+            <div class="character-item">Loading characters...</div>
+          </div>
+          
+          <div class="button-group">
+            <button type="button" id="saveBtn">💾 Save Character</button>
+            <button type="button" id="loadBtn">📂 Load Character</button>
+            <button type="button" id="newBtn">📄 New Character</button>
+            <button type="button" id="printBtn">🖨️ Print Sheet</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div id="statusMessage" class="status-message"></div>
+
+  <script>
+    // Character management system
+    class COCCharacterSheet {
+      constructor() {
+        this.form = document.getElementById('characterForm');
+        this.initEventListeners();
+        this.calculateDerivedStats();
+        this.initCollapsibleSections();
+        this.loadCharacterList();
+      }
+
+      initEventListeners() {
+        // Auto-calculate derived stats when characteristics change
+        document.querySelectorAll('.characteristic').forEach(input => {
+          input.addEventListener('input', () => this.calculateDerivedStats());
+        });
+
+        // Button event listeners
+        document.getElementById('saveBtn').addEventListener('click', () => this.saveCharacter());
+        document.getElementById('loadBtn').addEventListener('click', () => this.toggleLoadList());
+        document.getElementById('newBtn').addEventListener('click', () => this.newCharacter());
+        document.getElementById('printBtn').addEventListener('click', () => this.printSheet());
+
+        // Form auto-save (optional)
+        this.form.addEventListener('input', () => {
+          // Debounced auto-save could go here
+        });
+      }
+
+      initCollapsibleSections() {
+        document.querySelectorAll('.collapsible').forEach(header => {
+          header.addEventListener('click', () => {
+            header.classList.toggle('collapsed');
+            const content = header.nextElementSibling;
+            content.classList.toggle('collapsed');
+          });
+        });
+      }
+
+      calculateDerivedStats() {
+        const str = parseInt(document.querySelector('[name="str"]').value) || 0;
+        const con = parseInt(document.querySelector('[name="con"]').value) || 0;
+        const siz = parseInt(document.querySelector('[name="siz"]').value) || 0;
+        const pow = parseInt(document.querySelector('[name="pow"]').value) || 0;
+        const dex = parseInt(document.querySelector('[name="dex"]').value) || 0;
+
+        // Hit Points
+        const hp = Math.floor((con + siz) / 10);
+        document.querySelector('[name="hp"]').value = hp;
+        if (!document.querySelector('[name="current_hp"]').value) {
+          document.querySelector('[name="current_hp"]').value = hp;
+        }
+
+        // Sanity
+        const sanity = pow;
+        document.querySelector('[name="sanity"]').value = sanity;
+        if (!document.querySelector('[name="current_sanity"]').value) {
+          document.querySelector('[name="current_sanity"]').value = sanity;
+        }
+
+        // Magic Points
+        const mp = Math.floor(pow / 5);
+        document.querySelector('[name="mp"]').value = mp;
+        if (!document.querySelector('[name="current_mp"]').value) {
+          document.querySelector('[name="current_mp"]').value = mp;
+        }
+
+        // Damage Bonus and Build
+        const totalStrSiz = str + siz;
+        let damageBonus = '';
+        let build = 0;
+
+        if (totalStrSiz < 65) {
+          damageBonus = '-2';
+          build = -2;
+        } else if (totalStrSiz < 85) {
+          damageBonus = '-1';
+          build = -1;
+        } else if (totalStrSiz < 125) {
+          damageBonus = '0';
+          build = 0;
+        } else if (totalStrSiz < 165) {
+          damageBonus = '+1d4';
+          build = 1;
+        } else if (totalStrSiz < 205) {
+          damageBonus = '+1d6';
+          build = 2;
+        } else {
+          damageBonus = '+2d6';
+          build = 3;
+        }
+
+        document.querySelector('[name="damage_bonus"]').value = damageBonus;
+        document.querySelector('[name="build"]').value = build;
+
+        // Move Rate
+        let moveRate = 8;
+        if (str < siz && dex < siz) moveRate = 7;
+        if (str > siz && dex > siz) moveRate = 9;
+        document.querySelector('[name="move"]').value = moveRate;
+      }
+
+      getFormData() {
+        const formData = new FormData(this.form);
+        const data = {};
+        
+        for (let [key, value] of formData.entries()) {
+          if (value !== '') {
+            data[key] = value;
+          }
+        }
+        
+        // Handle checkboxes
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+          data[checkbox.name] = checkbox.checked;
+        });
+        
+        return data;
+      }
+
+      setFormData(data) {
+        Object.keys(data).forEach(key => {
+          const element = document.querySelector(`[name="${key}"]`);
+          if (element) {
+            if (element.type === 'checkbox') {
+              element.checked = data[key];
+            } else {
+              element.value = data[key];
+            }
+          }
+        });
+        this.calculateDerivedStats();
+      }
+
+      async saveCharacter() {
+        const data = this.getFormData();
+        
+        if (!data.name) {
+          this.showMessage('Please enter a character name before saving.', 'error');
+          return;
+        }
+
+        try {
+          const response = await fetch('/save', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+          });
+
+          if (response.ok) {
+            this.showMessage(`Character "${data.name}" saved successfully!`, 'success');
+            this.loadCharacterList();
+          } else {
+            throw new Error('Save failed');
+          }
+        } catch (error) {
+          this.showMessage('Error saving character. Please try again.', 'error');
+        }
+      }
+
+      async loadCharacterList() {
+        try {
+          const response = await fetch('/list');
+          const characters = await response.json();
+          
+          const listDiv = document.getElementById('characterList');
+          listDiv.innerHTML = '';
+          
+          if (characters.length === 0) {
+            listDiv.innerHTML = '<div class="character-item">No saved characters found.</div>';
+          } else {
+            characters.forEach(name => {
+              const item = document.createElement('div');
+              item.className = 'character-item';
+              item.textContent = name.replace(/_/g, ' ');
+              item.addEventListener('click', () => this.loadCharacter(name));
+              listDiv.appendChild(item);
+            });
+          }
+        } catch (error) {
+          console.error('Error loading character list:', error);
+        }
+      }
+
+      async loadCharacter(name) {
+        try {
+          const response = await fetch(`/load/${name}`);
+          const data = await response.json();
+          
+          if (response.ok) {
+            this.setFormData(data);
+            this.showMessage(`Character "${name.replace(/_/g, ' ')}" loaded successfully!`, 'success');
+            this.toggleLoadList(false);
+          } else {
+            throw new Error(data.error || 'Load failed');
+          }
+        } catch (error) {
+          this.showMessage('Error loading character. Please try again.', 'error');
+        }
+      }
+
+      toggleLoadList(show = null) {
+        const listDiv = document.getElementById('characterList');
+        const isVisible = listDiv.style.display !== 'none';
+        
+        if (show === null) show = !isVisible;
+        
+        listDiv.style.display = show ? 'block' : 'none';
+        
+        if (show) {
+          this.loadCharacterList();
+        }
+      }
+
+      newCharacter() {
+        if (confirm('Create a new character? This will clear all current data.')) {
+          this.form.reset();
+          this.calculateDerivedStats();
+          this.showMessage('New character sheet created.', 'success');
+        }
+      }
+
+      printSheet() {
+        // Expand all sections for printing
+        document.querySelectorAll('.section-content.collapsed').forEach(content => {
+          content.classList.remove('collapsed');
+        });
+        
+        window.print();
+      }
+
+      showMessage(text, type) {
+        const messageDiv = document.getElementById('statusMessage');
+        messageDiv.textContent = text;
+        messageDiv.className = `status-message ${type}`;
+        messageDiv.classList.add('show');
+        
+        setTimeout(() => {
+          messageDiv.classList.remove('show');
+        }, 3000);
+      }
+    }
+
+    // Initialize the character sheet when the page loads
+    document.addEventListener('DOMContentLoaded', () => {
+      new COCCharacterSheet();
+    });
+  </script>
 </body>
 </html>
-
