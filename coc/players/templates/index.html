@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Call of Cthulhu 7e Character Sheet</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #1a1a1a;
+      color: #eee;
+      margin: 20px;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #e0b000;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 5px;
+      margin-top: 5px;
+      border: 1px solid #555;
+      background-color: #2a2a2a;
+      color: white;
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 10px;
+    }
+    @media print {
+      body {
+        background: white;
+        color: black;
+      }
+      input, textarea {
+        border: none;
+        background: none;
+        color: black;
+      }
+      button {
+        display: none;
+      }
+    }
+  </style>
+  <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+  <h1>Call of Cthulhu 7th Edition</h1>
+  <form>
+    <div class="section">
+      <h2>Investigator Info</h2>
+      <label>Name: <input type="text" name="name"></label>
+      <label>Occupation: <input type="text" name="occupation"></label>
+      <label>Age: <input type="number" name="age"></label>
+      <label>Sex: <input type="text" name="sex"></label>
+      <label>Residence: <input type="text" name="residence"></label>
+      <label>Birthplace: <input type="text" name="birthplace"></label>
+    </div>
+
+    <div class="section">
+      <h2 class="collapsible">Characteristics</h2>
+      <div class="grid">
+        <label>STR: <input type="number" name="str"></label>
+        <label>DEX: <input type="number" name="dex"></label>
+        <label>INT: <input type="number" name="int"></label>
+        <label>CON: <input type="number" name="con"></label>
+        <label>APP: <input type="number" name="app"></label>
+        <label>POW: <input type="number" name="pow"></label>
+        <label>SIZ: <input type="number" name="siz"></label>
+        <label>EDU: <input type="number" name="edu"></label>
+        <label>Luck: <input type="number" name="luck"></label>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Skills (Sample)</h2>
+      <div class="grid">
+        <label>Spot Hidden: <input type="number" name="spot_hidden"></label>
+        <label>Library Use: <input type="number" name="library_use"></label>
+        <label>Psychology: <input type="number" name="psychology"></label>
+        <label>Stealth: <input type="number" name="stealth"></label>
+        <label>Occult: <input type="number" name="occult"></label>
+        <label>Firearms (Handgun): <input type="number" name="firearms_handgun"></label>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Backstory</h2>
+      <label>Personal Description:
+        <textarea name="personal_description" rows="3"></textarea>
+      </label>
+      <label>Ideology/Beliefs:
+        <textarea name="beliefs" rows="3"></textarea>
+      </label>
+      <label>Significant People:
+        <textarea name="significant_people" rows="3"></textarea>
+      </label>
+      <label>Meaningful Locations:
+        <textarea name="locations" rows="3"></textarea>
+      </label>
+      <label>Treasured Possessions:
+        <textarea name="possessions" rows="3"></textarea>
+      </label>
+      <label>Traits:
+        <textarea name="traits" rows="3"></textarea>
+      </label>
+    </div>
+
+    <div class="section">
+      <h2>Combat & Health</h2>
+      <div class="grid">
+        <label>HP: <input type="number" name="hp"></label>
+        <label>Sanity: <input type="number" name="sanity"></label>
+        <label>MP (Magic Points): <input type="number" name="mp"></label>
+        <label>Damage Bonus: <input type="text" name="damage_bonus"></label>
+        <label>Build: <input type="number" name="build"></label>
+        <label>Move Rate: <input type="number" name="move"></label>
+      </div>
+    </div>
+
+    <div class="section">
+      <button type="button" id="save">💾 Save</button>
+      <button type="button" id="load">📂 Load</button>
+      <button type="button" id="print">🖨️ Print</button>
+    </div>
+
+    <div class="section">
+      <button type="submit">Save Character</button>
+    </div>
+  </form>
+</body>
+</html>
+
