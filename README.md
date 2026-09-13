@@ -18,9 +18,13 @@ The Call of Cthulhu character sheet (`/coc/players/`) saves characters through P
 
 Pages project settings:
 
-- **KV namespace binding:** `SHEETS` (required, for both Production and Preview).
+- **KV namespace binding:** `SHEETS` (required). Production and Preview are configured separately. Give
+  Preview its own namespace, so testing a branch never touches the real sheets.
 - **Variable `SHEETS_PASSCODE`:** optional but recommended. Set it as an encrypted secret, and the page
   will ask players for it once.
+
+`404.html` is served for unknown paths (without it, Pages would answer every URL with the home page), and
+`_headers` adds basic security headers to the static files.
 
 Run it locally with the same bindings:
 

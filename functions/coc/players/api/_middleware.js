@@ -7,7 +7,13 @@ const encoder = new TextEncoder();
 export function json(body, status = 200, headers = {}) {
   return new Response(JSON.stringify(body), {
     status,
-    headers: { "Content-Type": "application/json; charset=utf-8", ...headers },
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+      // Saved sheets change often and may be passcode-protected: never cache them.
+      "Cache-Control": "no-store",
+      "X-Content-Type-Options": "nosniff",
+      ...headers,
+    },
   });
 }
 

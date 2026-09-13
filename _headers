@@ -1,0 +1,6 @@
+# Cloudflare Pages response headers for static files.
+# (Function responses under /coc/players/api/ set their own headers.)
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
