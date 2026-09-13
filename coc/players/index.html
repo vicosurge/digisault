@@ -465,6 +465,31 @@
   <div id="statusMessage" class="status-message"></div>
 
   <script>
+    // Talks to the Cloudflare Pages Functions in functions/coc/players/api/.
+    // If the site has a passcode set, ask for it once and remember it in this browser.
+    const API_BASE = '/coc/players/api';
+    const PASSCODE_KEY = 'cocSheetsPasscode';
+
+    function storedPasscode() {
+      try { return localStorage.getItem(PASSCODE_KEY) || ''; } catch (e) { return ''; }
+    }
+
+    async function api(path, options = {}, retried = false) {
+      const headers = { ...(options.headers || {}) };
+      const passcode = storedPasscode();
+      if (passcode) headers['X-Sheets-Passcode'] = passcode;
+
+      const response = await fetch(`${API_BASE}${path}`, { ...options, headers });
+      if (response.status === 401 && !retried) {
+        const entered = prompt('Enter the table passcode to use saved characters:');
+        if (entered) {
+          try { localStorage.setItem(PASSCODE_KEY, entered); } catch (e) {}
+          return api(path, options, true);
+        }
+      }
+      return response;
+    }
+
     // Character management system
     class COCCharacterSheet {
       constructor() {
@@ -607,7 +632,7 @@
         }
 
         try {
-          const response = await fetch('/save', {
+          const response = await api('/save', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -628,7 +653,8 @@
 
       async loadCharacterList() {
         try {
-          const response = await fetch('/list');
+          const response = await api('/list');
+          if (!response.ok) throw new Error(`List failed (${response.status})`);
           const characters = await response.json();
           
           const listDiv = document.getElementById('characterList');
@@ -652,7 +678,7 @@
 
       async loadCharacter(name) {
         try {
-          const response = await fetch(`/load/${name}`);
+          const response = await api(`/load/${encodeURIComponent(name)}`);
           const data = await response.json();
           
           if (response.ok) {
