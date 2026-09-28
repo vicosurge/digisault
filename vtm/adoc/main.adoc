@@ -55,6 +55,8 @@ include::{toreador}/anselmo.adoc[Anselmo, the Violin Maker]
 
 include::{toreador}/osprey-duke-orleans.adoc[Osprey, Duke of Orleans]
 
+include::{toreador}/saul-rodriguez.adoc[Saul Rodriguez de Santiago de Compostela]
+
 === Giovanni
 
 include::{giovanni}/ambrosio.adoc[Ambrosio Giovanni]
