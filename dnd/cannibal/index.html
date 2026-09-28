@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cannibal Island · digisault</title>
+  <meta name="description" content="A three-session D&D 5e horror adventure of colonial dread for 3rd–5th level characters.">
+  <style>
+:root{--ink:#222;--muted:#666;--accent:#7a2e1d;--paper:#faf8f3;--card:#fffdf8;--rule:#d8cfbf;--shade:#f3ede2;--jungle:#3d5a3a}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:1rem}
+body{font-family:Georgia,'Times New Roman',serif;margin:0;padding:3rem 1rem;line-height:1.6;color:var(--ink);background:var(--paper)}
+a{color:var(--accent)}
+.wrap{max-width:44rem;margin:0 auto}
+nav.crumbs{font-size:.95rem;margin-bottom:2rem;color:var(--muted)}
+header.title h1{font-size:2.6rem;line-height:1.1;margin:0 0 .4rem;letter-spacing:-.01em}
+header.title .tagline{margin:0;color:var(--muted);font-style:italic}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:1rem 0 .5rem;padding:0;list-style:none}
+.chips li{font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;border:1px solid var(--rule);background:var(--card);padding:.15rem .6rem;border-radius:2px;margin:0}
+.chips li.go{border-color:var(--accent)}
+h2{margin-top:3rem;font-size:1.5rem;border-bottom:1px solid var(--rule);padding-bottom:.3rem}
+h3{margin-top:2.2rem;font-size:1.15rem}
+h4{margin-top:1.5rem;font-size:1rem}
+h2[id^="session-"]{border:0;background:var(--accent);color:#fff;padding:.7rem 1rem;margin-top:4rem;font-size:1.45rem;border-radius:2px}
+.lead{font-style:italic;color:#444;border-left:3px solid var(--accent);padding:.1rem 0 .1rem 1rem;margin:1rem 0 1.5rem}
+.lead p{margin:0}
+.time{font-weight:normal;font-size:.78em;color:var(--muted);margin-left:.4rem;font-family:system-ui,sans-serif}
+.badge{font-family:system-ui,sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:var(--accent);color:#fff;padding:.12rem .45rem;border-radius:2px;vertical-align:.2em;margin-left:.35rem}
+blockquote{margin:1.25rem 0;padding:1rem 1.2rem;background:var(--shade);border-left:4px solid var(--jungle);font-style:italic;position:relative}
+blockquote::before{content:"Read aloud";display:block;font-family:system-ui,sans-serif;font-style:normal;font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--jungle);margin-bottom:.35rem}
+blockquote p{margin:0}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.45rem .6rem;border-bottom:1px solid var(--rule)}
+th{font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--accent)}
+tbody tr:nth-child(even){background:rgba(0,0,0,.018)}
+.tablewrap{overflow-x:auto}
+hr{border:0;height:1px;background:var(--rule);margin:2.5rem 0}
+code,pre{font-family:ui-monospace,'DejaVu Sans Mono',Menlo,Consolas,monospace}
+pre{background:var(--card);border:1px solid var(--rule);padding:1rem;overflow-x:auto;font-size:.82rem;line-height:1.2}
+.statblock{background:var(--card);border-top:4px solid var(--accent);border-bottom:4px solid var(--accent);box-shadow:0 1px 3px rgba(0,0,0,.12);padding:.2rem 1.2rem .8rem;margin:2rem 0;font-size:.93rem;break-inside:avoid}
+.statblock h3{color:var(--accent);font-size:1.4rem;margin:.8rem 0 0;font-variant:small-caps;letter-spacing:.02em}
+.statblock h3+p{margin-top:0;color:var(--muted)}
+.statblock p{margin:.45rem 0}
+.statblock table{width:auto;min-width:100%;text-align:center;margin:.6rem 0;border-top:2px solid var(--accent);border-bottom:2px solid var(--accent)}
+.statblock th,.statblock td{text-align:center;border:0;padding:.2rem .3rem}
+.statblock th{color:var(--accent);border:0}
+.statblock tbody tr:nth-child(even){background:none}
+.statblock p.sbh{color:var(--accent);font-variant:small-caps;font-size:1.15rem;border-bottom:1px solid var(--accent);margin:1rem 0 .4rem;padding-bottom:.1rem}
+.statblock ul{margin:.2rem 0 .5rem;padding-left:1.2rem}.statblock li{margin:.1rem 0}
+.artifact{border-top-color:var(--jungle);border-bottom-color:var(--jungle)}
+.artifact h2{border:0;margin-top:.6rem;color:var(--jungle)}
+.handout{background:var(--card);border:1px solid var(--rule);box-shadow:0 1px 3px rgba(0,0,0,.08);padding:.3rem 1.4rem 1rem;margin:2rem 0;break-inside:avoid}
+.handout h2{border:0;margin-top:1rem;font-variant:small-caps;color:var(--accent)}
+.handout.dm{background:var(--shade)}
+.toc ul{list-style:none;padding-left:0;margin:0}
+.toc ul ul{padding-left:.9rem;font-size:.9em}
+.toc li{margin:.2rem 0}
+.toc a{text-decoration:none;color:var(--ink)}
+.toc a:hover,.toc a.on{color:var(--accent)}
+.toc a.on{font-weight:bold}
+details.toc{background:var(--card);border:1px solid var(--rule);padding:.6rem 1rem;margin:1.5rem 0}
+details.toc summary{cursor:pointer;font-variant:small-caps;letter-spacing:.04em}
+aside.toc{display:none}
+footer{margin-top:4rem;padding-top:1rem;border-top:1px solid var(--rule);font-size:.9rem;color:var(--muted)}
+@media (min-width:1180px){
+  .layout{display:grid;grid-template-columns:15rem 44rem;gap:3rem;justify-content:center}
+  .layout .wrap{margin:0}
+  aside.toc{display:block;position:sticky;top:1.5rem;align-self:start;max-height:calc(100vh - 3rem);overflow-y:auto;font-size:.88rem;padding-top:5.5rem}
+  aside.toc::before{content:"Contents";display:block;font-variant:small-caps;letter-spacing:.06em;color:var(--muted);margin-bottom:.5rem}
+  details.toc{display:none}
+}
+@media (max-width:600px){header.title h1{font-size:2rem}body{padding:2rem 1rem}}
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  nav.crumbs,.toc,footer,.chips li.go{display:none!important}
+  .layout{display:block}
+  h2[id^="session-"]{break-before:page;background:none;color:var(--accent);border-bottom:2px solid var(--accent)}
+  .handout{break-inside:avoid;box-shadow:none}
+  a{color:inherit;text-decoration:none}
+}</style>
+</head>
+<body>
+<div class="layout">
+<aside class="toc"><ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#whats-really-going-on">What’s Really Going On</a></li>
+<li><a href="#the-setting">The Setting</a></li>
+<li><a href="#corruption">Corruption</a></li>
+<li><a href="#session-1-arrival-and-the-first-run">Session 1: Arrival and the First Run</a></li>
+<li><a href="#session-2-the-mine">Session 2: The Mine</a></li>
+<li><a href="#session-3-the-temple">Session 3: The Temple</a></li>
+<li><a href="#appendix-a-the-anchor">Appendix A: The Anchor</a></li>
+<li><a href="#appendix-b-creatures">Appendix B: Creatures</a></li>
+<li><a href="#appendix-c-beclus-goods">Appendix C: Beclu’s Goods</a></li>
+<li><a href="#appendix-d-encounters-and-scaling">Appendix D: Encounters and Scaling</a></li>
+</ul></aside>
+<div class="wrap">
+  <nav class="crumbs"><a href="/">digisault</a> › Cannibal Island</nav>
+  <header class="title">
+    <h1>Cannibal Island</h1>
+    <p class="tagline">A three-session D&amp;D 5e horror adventure of colonial dread</p>
+    <ul class="chips"><li>D&amp;D 5e</li><li>3 sessions</li><li>Levels 3–5</li><li>4–5 players</li><li class="go"><a href="handouts.html">Handouts &amp; maps →</a></li></ul>
+  </header>
+  <details class="toc"><summary>Contents</summary><ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#whats-really-going-on">What’s Really Going On</a></li>
+<li><a href="#the-setting">The Setting</a></li>
+<li><a href="#corruption">Corruption</a></li>
+<li><a href="#session-1-arrival-and-the-first-run">Session 1: Arrival and the First Run</a></li>
+<li><a href="#session-2-the-mine">Session 2: The Mine</a></li>
+<li><a href="#session-3-the-temple">Session 3: The Temple</a></li>
+<li><a href="#appendix-a-the-anchor">Appendix A: The Anchor</a></li>
+<li><a href="#appendix-b-creatures">Appendix B: Creatures</a></li>
+<li><a href="#appendix-c-beclus-goods">Appendix C: Beclu’s Goods</a></li>
+<li><a href="#appendix-d-encounters-and-scaling">Appendix D: Encounters and Scaling</a></li>
+</ul></details>
+<h2 id="introduction">Introduction</h2>
+<p>Cannibal Island is a psychological horror adventure rooted in colonial dread. The players arrive at a remote mining outpost run by an expanding empire. On the surface it’s a routine job: guard duty, caravan escort, good pay. Within a session, something is clearly wrong. Within two, they know what it is. By the end, they face a choice that has no clean answer.</p>
+<p>The adventure works because its horror is structural, not decorative. The violence and the cosmic threat are real. The true weight, though, comes from moral complicity: the players realize they have been part of something terrible since the moment they accepted their first paycheck. Every option in the final session costs something that cannot be recovered.</p>
+<p><strong>Structure.</strong> Three sessions of three to four hours each:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr class="header">
+<th>Session</th>
+<th>Title</th>
+<th>Level</th>
+<th>What happens</th>
+<th>Combat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Arrival and the First Run</td>
+<td>3</td>
+<td>The players arrive, take the caravan job and see the mine</td>
+<td>The river crossing</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>The Mine</td>
+<td>4</td>
+<td>They find proof of the corruption and cross the point of no return</td>
+<td>Captain Blackwood</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>The Temple</td>
+<td>5</td>
+<td>They hear the truth and face the Anchor</td>
+<td>The final battle</td>
+</tr>
+</tbody>
+</table></div>
+<p>Characters gain a level at the end of each session.</p>
+<p><strong>Documents.</strong> This file has everything the DM needs: the story, the scenes, the Corruption rules and the stat blocks. The handouts file has what the players see at the table, plus the maps.</p>
+<p><strong>Content warning.</strong> This adventure depicts colonial violence, forced labor and body horror. Talk through expectations with your table before play.</p>
+<p><strong>Tone.</strong> It leans on dread over gore. The horror works best when players feel the conspiracy closing around them before they understand its full shape. Corruption should feel like a slow tide, not a sudden punishment. Reward the players who investigate.</p>
+<hr />
+<h2 id="whats-really-going-on">What’s Really Going On</h2>
+<ul>
+<li><strong>The Anchor.</strong> Deep under the island’s dormant volcano lies the Anchor, a crystal thirty feet tall. It is the prison of something ancient and hungry, and its influence seeps into every mind on the island.</li>
+<li><strong>Nilith El’Zen.</strong> The Anchor’s avatar is a six-armed, eyeless figure with a hooked mouth and a red sun on its chest. It is the mouth through which the imprisoned thing speaks.</li>
+<li><strong>The necromancers.</strong> They are the last living priests of the island’s tribes. They found the Anchor long before the Empire arrived, and they raise their own dead as the undead cannibals. They serve Nilith, and Nilith pays them in power for every life they feed it.</li>
+<li><strong>Reynolds’s pact.</strong> Governor Reynolds made a deal with the necromancers: prisoners for peace. The caravans keep the undead away from the town and the mine. Some of the “workers” carried to the mine are handed over in the night and never come back. Reynolds tells himself that he feeds a few dozen to keep hundreds alive.</li>
+<li><strong>The mine.</strong> Foreman Drummond and Guard Captain Blackwood are deep in the Anchor’s grip. The deepest shaft isn’t following gold, it’s heading for the Anchor, and it will reach it in two to three years. The tribes’ temple reaches the Anchor from the other side, through a stair on the volcano’s jungle slope.</li>
+<li><strong>The Empire.</strong> It knows none of this. It only sees the gold.</li>
+</ul>
+<hr />
+<h2 id="the-setting">The Setting</h2>
+<p><strong>The island.</strong> A jungle island about 60 km across, on the edge of the Empire of Dragons. It has one coastal town, one road, and a mine at the foot of the volcano about 25 km inland. The road through the jungle takes a whole day, dawn to dusk.</p>
+<p><strong>The town.</strong> About forty buildings stand behind a palisade, with watchtowers that face the jungle, not the sea. The stone governor’s house and the armory are the only solid buildings. There’s a well with a small altar and an underground tavern, and the docks can hold two medium ships. The ship that brings the players won’t stay the night; the next one comes in a week.</p>
+<p><strong>Pay.</strong> Guard duty pays 100 sp a day. A caravan run pays 1,000 sp.</p>
+<p><strong>Magic.</strong> It’s extremely rare, about 1 in 250,000 people, and has historically been hunted. Anyone who uses it hides it. Magic items are just as rare. A player who wants a spellcaster needs a good reason why they’re hiding out here.</p>
+<p><strong>Timeline.</strong></p>
+<ul>
+<li><strong>Day 1:</strong> arrival.</li>
+<li><strong>Day 2:</strong> first caravan run (Session 1).</li>
+<li><strong>Day 5:</strong> second run (Session 2).</li>
+<li><strong>Day 6:</strong> Reynolds’s confession and the temple (Session 3).</li>
+<li><strong>Day 8:</strong> next ship.</li>
+</ul>
+<h3 id="the-cast">The Cast</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Who they are</th>
+<th>What they want</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Governor Reynolds</strong></td>
+<td>Island commander, a weathered veteran in his late 40s. Corruption stage 3.</td>
+<td>To keep the town alive at any price, and to have the players understand why.</td>
+</tr>
+<tr class="even">
+<td><strong>Tradesman Beclu</strong></td>
+<td>The town’s “herbalist”, really an alchemist in hiding.</td>
+<td>To earn back a court position at home. He’s invested in everyone’s survival.</td>
+</tr>
+<tr class="odd">
+<td><strong>Sergeant Mikeal Zentu</strong></td>
+<td>Leads Yellow team. Calm, dark-skinned, and draws his scimitar faster than the eye can follow.</td>
+<td>To start a mercenary company with Damien once they’re done here.</td>
+</tr>
+<tr class="even">
+<td><strong>Sergeant Damien von Hans</strong></td>
+<td>Leads Red team. Stocky, fights with two axes, and his crossbow bolts are envenomed.</td>
+<td>Brotherhood. His men come home alive.</td>
+</tr>
+<tr class="odd">
+<td><strong>Marcus Drummond</strong></td>
+<td>The foreman. A former veteran in his late 50s, warm and welcoming. Corruption stage 3.</td>
+<td>To keep the mine digging toward the voice.</td>
+</tr>
+<tr class="even">
+<td><strong>Guard Captain Thomas Blackwood</strong></td>
+<td>Captain of the mine guard. Corruption stage 4.</td>
+<td>To bring others into the Anchor’s embrace.</td>
+</tr>
+<tr class="odd">
+<td><strong>Elena Vasquez</strong></td>
+<td>A prisoner at the mine, formerly a teacher.</td>
+<td>To be believed.</td>
+</tr>
+<tr class="even">
+<td><strong>The necromancers</strong></td>
+<td>Painted priests carrying bone staves. They’re seen at the treeline long before anyone speaks to them.</td>
+<td>To feed Nilith and be fed in return.</td>
+</tr>
+<tr class="odd">
+<td><strong>Nilith El’Zen</strong></td>
+<td>The Anchor’s avatar.</td>
+<td>Everything, slowly.</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="corruption">Corruption</h2>
+<p>The Anchor’s influence reaches the whole island and grows stronger the closer you get to it. Track each character’s stage, from 0 to 5, on the Corruption Tracker (Handout 5). Describe symptoms to the player, not stage numbers.</p>
+<h3 id="exposure">Exposure</h3>
+<p>When a trigger happens, the character makes the saving throw. On a failure, they advance one stage.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr class="header">
+<th>Trigger</th>
+<th>Save</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>First night on the island</td>
+<td>DC 10 Wisdom</td>
+</tr>
+<tr class="even">
+<td>The night after each trip to the mine or the temple</td>
+<td>DC 12 Constitution</td>
+</tr>
+<tr class="odd">
+<td>Witnessing a sacrifice ritual</td>
+<td>DC 14 Wisdom</td>
+</tr>
+<tr class="even">
+<td>Entering the deep shaft (each visit)</td>
+<td>DC 15 Constitution</td>
+</tr>
+<tr class="odd">
+<td>A creature’s Corruption Aura or attack</td>
+<td>See its stat block</td>
+</tr>
+<tr class="even">
+<td>Touching the Anchor</td>
+<td>DC 18 Constitution</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>One stage per scene.</strong> Outside the Anchor chamber, a character advances at most one stage per scene, however many saves they fail. In the chamber there is no limit.</p>
+<h3 id="stages">Stages</h3>
+<p><strong>Stage 1: Whispers.</strong> The character has nightmares of a pulsing red sun and hears whispers in unknown languages.</p>
+<ul>
+<li>They have disadvantage on Wisdom (Insight) checks.</li>
+<li>After each long rest, they make a DC 12 Wisdom saving throw. On a failure, the rest gives no benefit.</li>
+</ul>
+<p><strong>Stage 2: Touched.</strong> The character speaks Deep Speech in their sleep, is unusually curious about the mine, has cool skin, and their fingernails grow sharp.</p>
+<ul>
+<li>They can sense corrupted creatures within 30 feet.</li>
+<li>They make all Wisdom saving throws with disadvantage.</li>
+</ul>
+<p><strong>Stage 3: Claimed.</strong> The character feels a compulsion to protect the conspiracy. Their voice sometimes harmonizes with itself, and their shadow lags behind them.</p>
+<ul>
+<li>Before taking a hostile action against a corrupted creature of CR 1 or higher, they must succeed on a DC 15 Wisdom saving throw, or the action is wasted.</li>
+<li>They gain darkvision 60 ft., and their Constitution increases by 2 (to a maximum of 20).</li>
+</ul>
+<p><strong>Stage 4: Consumed.</strong> The character’s personality begins to fragment. Their eyes glow crimson in the dark, and they speak Deep Speech while awake.</p>
+<ul>
+<li>Once per day, the DM can call for a DC 17 Wisdom saving throw. On a failure, the DM chooses the character’s next action. Play it as impulse, not possession.</li>
+<li>They gain +2 to attack rolls and saving throws.</li>
+</ul>
+<p><strong>Stage 5: Vessel.</strong> The character becomes an NPC who serves the Anchor.</p>
+<ul>
+<li>They keep their memories and all their abilities.</li>
+<li>They aren’t hostile to their friends unless their friends threaten the Anchor, and they may be distressed by what they’re doing.</li>
+</ul>
+<p>Every stage keeps the effects of the stages before it.</p>
+<h3 id="reducing-corruption">Reducing Corruption</h3>
+<ul>
+<li><strong><em>Greater restoration.</em></strong> Reduces the target’s stage by 1, no more than once per long rest.</li>
+<li><strong>Beclu’s Suppression Compound.</strong> The target rerolls the save that last advanced their stage, with advantage. On a success, their stage goes back by 1.</li>
+<li><strong>Distance.</strong> Seven days more than 5 miles from the Anchor (in practice, off the island), then a DC 12 Constitution save. On a success, the stage goes down by 1.</li>
+<li><strong>Destroying the Anchor.</strong> Everyone drops to stage 0, except a Vessel, who drops to stage 3.</li>
+<li><strong><em>Wish.</em></strong> The only sure cure for stage 5.</li>
+</ul>
+<hr />
+<h2 id="session-1-arrival-and-the-first-run">Session 1: Arrival and the First Run</h2>
+<div class="lead">
+<p><em>Level 3. The players arrive, take the job and see the mine. By the end they know the island is wrong, and they’ve helped deliver prisoners.</em></p>
+</div>
+<h3 id="the-ship-15-minutes">1. The Ship <span class="time">15 minutes</span></h3>
+<p>The ship spends two to three days at sea. Ask each player: <em>“What brought you to seek work on this remote island?”</em> Give them the Ship Rumors (Handout 1). A DC 12 Intelligence (Investigation) check in the hold turns up the cages below deck. The captain is professional, and he refuses to stay overnight at the island.</p>
+<h3 id="arrival-15-minutes">2. Arrival <span class="time">15 minutes</span></h3>
+<blockquote>
+<p><em>The ship’s sails slacken as you approach a rough wooden dock below a small coastal settlement. Forty or so buildings huddle behind a crude palisade, watchtowers rising like broken teeth against the jungle. The silence strikes you first: no market calls, no children playing, just the lap of waves and distant bird cries. The few dock workers move with purpose, avoiding your eyes as they secure the lines.</em></p>
+</blockquote>
+<p>The palisade has fresh repairs, and there’s a smell of decay under the salt air. Reynolds meets the players on the dock himself. He’s tired but friendly, and seems to care about newcomers.</p>
+<ul>
+<li><em>“Welcome to our little slice of paradise. I’m Reynolds, Governor of this operation.”</em></li>
+<li><em>“The armory will see to your kit. Beclu can help with… other necessities.”</em></li>
+<li><em>“Stay inside the walls after dark. That’s not a suggestion.”</em></li>
+<li><em>“Supply run to the mine leaves at dawn. A thousand silver for volunteers.”</em></li>
+</ul>
+<h3 id="the-town-45-minutes">3. The Town <span class="time">45 minutes</span></h3>
+<p><strong>Beclu’s shop.</strong> Give the players Beclu’s Price List (Handout 2). He calls himself “good with herbs”, and a DC 15 Wisdom (Insight) check shows he knows far more than that. He pushes blessed salt, healing draughts and fire: <em>“Carry fire. Always. They don’t like it.”</em></p>
+<p><strong>The well.</strong> It’s stone-lined, with a small altar of flowers, carved figures and coins.</p>
+<ul>
+<li>A DC 12 Intelligence (Religion) check identifies protective wards against evil.</li>
+<li>A DC 15 Intelligence (Investigation) check shows the offerings are refreshed every day.</li>
+<li>The locals say: <em>“Keeps the water pure. Can’t be too careful out here.”</em></li>
+</ul>
+<p><strong>The underground tavern.</strong> It’s cool, dim and full of gallows humor. Use Overheard in the Tavern (Handout 3).</p>
+<ul>
+<li>A DC 13 Charisma (Persuasion) check with a retired sergeant gets: <em>“Some of the mine guards come back… different.”</em></li>
+<li>A young private keeps mumbling about “red eyes in the dark” and “they took Johnson alive”. A DC 15 Wisdom (Medicine) check shows severe trauma.</li>
+</ul>
+<p><strong>Night watch.</strong> The players walk the palisade. It has claw marks, and the guards keep calling out “contacts” that vanish.</p>
+<ul>
+<li>DC 12 Wisdom (Perception): shapes moving between the trees.</li>
+<li>DC 15: whispers in an unknown language.</li>
+<li>DC 18: human figures standing still, watching.</li>
+</ul>
+<p>When the players go to sleep, they make the first corruption save (DC 10 Wisdom).</p>
+<h3 id="the-caravan-20-minutes">4. The Caravan <span class="time">20 minutes</span></h3>
+<p>Before dawn, ox carts are loaded in the square: food, tools, medicine and prisoner cages. The caravan is twenty soldiers, ten each for Yellow team (Mikeal) and Red team (Damien), plus the players, split between the teams however they like.</p>
+<p><strong>Mikeal:</strong></p>
+<ul>
+<li><em>“First rule: stay with your team. Second rule: don’t be a hero.”</em></li>
+<li><em>“The jungle’s alive out there. It watches, it learns, it waits.”</em></li>
+</ul>
+<p><strong>Damien:</strong></p>
+<ul>
+<li><em>“We go fast, we go hard, we don’t stop for anything.”</em></li>
+<li><em>“These men are your brothers now. You fight for them, they fight for you.”</em></li>
+</ul>
+<p><strong>The prisoners.</strong> A DC 12 Wisdom (Perception) check notices the cages being loaded. They hold war captives from the Empire’s expansion, plus some debtors.</p>
+<ul>
+<li>Mikeal: <em>“Empire’s expansion creates prisoners. Mine needs workers.”</em></li>
+<li>Damien: <em>“Not our job to judge. Our job is to deliver them alive.”</em></li>
+</ul>
+<p>Players who refuse to go lose the pay and stay on the island anyway. Players who go earn the teams’ respect. Either way, let the moment sit.</p>
+<h3 id="the-road-60-minutes">5. The Road <span class="time">60 minutes</span></h3>
+<p>Use the Jungle Signs (Handout 4) all the way along the road.</p>
+<p><strong>Broken ground.</strong> The party’s guide makes a DC 15 Wisdom (Survival) check. On a failure, the caravan reaches the river late and ragged, and the players have disadvantage on initiative there.</p>
+<p><strong>The river crossing <span class="badge">combat</span>.</strong> The river is crossed by a makeshift bridge, 5 feet wide and 60 feet long. Halfway across, <strong>6 undead cannibals</strong> attack from both banks. The sergeants hold one bank and the players the other.</p>
+<ul>
+<li>Anyone knocked into the current needs a DC 15 Strength (Athletics) check to swim out.</li>
+<li>This fight teaches the players that the cannibals regenerate unless burned.</li>
+<li>The soldiers protect the prisoners, who are valuable cargo.</li>
+</ul>
+<p><strong>The mud.</strong> Finding a safe path takes a DC 15 Wisdom (Survival) check. On a failure, one character or an ox sinks.</p>
+<ul>
+<li>The stuck creature makes a DC 14 Strength (Athletics) check each turn. On a success, it’s free.</li>
+<li>After three failures, it goes under and falls unconscious. An ally can pull it out with the same check.</li>
+<li>An ox is dragged under by something unseen, whatever the players do.</li>
+</ul>
+<h3 id="the-mine-30-minutes">6. The Mine <span class="time">30 minutes</span></h3>
+<blockquote>
+<p><em>The jungle gives way to a clearing carved into the volcano’s base. Stone buildings and mining gear dot the complex, and the rhythm of picks echoes from the pits. Guards walk the perimeter, but unlike the nervous men in town, these move with a disturbing calm. Nothing in the jungle makes a sound.</em></p>
+</blockquote>
+<p>Drummond greets the sergeants like old friends.</p>
+<ul>
+<li><em>“Mikeal! Damien! Good to see friendly faces from the outside.”</em></li>
+<li><em>“Fresh workers too. We’ll put them to good use.”</em></li>
+<li><em>“Some of the boys have been very… dedicated lately.”</em></li>
+</ul>
+<p>The players can notice:</p>
+<ul>
+<li>DC 13 Wisdom (Perception): the guards study the new prisoners closely.</li>
+<li>DC 17 Intelligence (Investigation): a guard makes hand signals toward the jungle.</li>
+<li>DC 16 Intelligence (Arcana): a magical aura is rising from the deep shafts.</li>
+<li>Without a check: the underground air is warm, and no animal comes near the mine.</li>
+</ul>
+<h3 id="the-return-15-minutes">7. The Return <span class="time">15 minutes</span></h3>
+<p>Run the trip back as a montage. The carts are heavy with gold, and the jungle follows them without attacking. At dusk, everyone sees a painted man with a bone staff standing at the treeline, watching. When they look again, he’s gone.</p>
+<p>That night, the players make the “night after a trip” corruption save (DC 12 Constitution).</p>
+<p><strong>End on one of these:</strong></p>
+<ul>
+<li>The prisoner count doesn’t match the return manifest.</li>
+<li>A character dreams of a red sun.</li>
+</ul>
+<hr />
+<h2 id="session-2-the-mine">Session 2: The Mine</h2>
+<div class="lead">
+<p><em>Level 4. The players find proof and confront Blackwood. By the end they can’t pretend anymore.</em></p>
+</div>
+<h3 id="three-days-later-10-minutes">1. Three Days Later <span class="time">10 minutes</span></h3>
+<p>Describe the symptoms of any character who failed a save. The sergeants are warier:</p>
+<ul>
+<li>Mikeal: <em>“They learned from last time. Expect different tactics.”</em></li>
+<li>Damien: <em>“Stay sharp. They’ll try to split us.”</em></li>
+</ul>
+<p>If a player earned Beclu’s trust, he quietly hands them a dose of Suppression Compound.</p>
+<h3 id="the-road-changes-20-minutes">2. The Road Changes <span class="time">20 minutes</span></h3>
+<p>This time there’s no attack, and that’s worse.</p>
+<ul>
+<li>The paths look wrong. A DC 16 Wisdom (Survival) check spots trails the necromancers have cut to lead the caravan astray.</li>
+<li>Whispers in each character’s native language call them by name from the trees.</li>
+<li>The cannibals shadow the carts in groups of three and four, testing where the column can be split.</li>
+</ul>
+<h3 id="inside-the-mine-75-minutes">3. Inside the Mine <span class="time">75 minutes</span></h3>
+<p>Unloading and loading the carts takes two to three hours, and nobody is watching the players closely. They can investigate any of three places, in any order.</p>
+<p><strong>The slave quarters.</strong> Getting in unnoticed takes a DC 13 Dexterity (Stealth) check. The quarters are crowded and afraid.</p>
+<ul>
+<li>A DC 15 Charisma (Persuasion) check gets Elena Vasquez to talk: <em>“They choose the strong ones, the ones who fight back. Take them down where the red light glows. They never come back.”</em></li>
+<li>She also says guards come for specific prisoners at night, and she’s heard chanting from the deep shafts.</li>
+</ul>
+<p><strong>The guard barracks.</strong> Searching it unseen takes a DC 16 Dexterity (Stealth) check. Inside:</p>
+<ul>
+<li>raw meat among the food stores</li>
+<li>symbols matching the carvings in the jungle</li>
+<li>beds that look like no one sleeps in them</li>
+<li>a journal: <em>“Day 47. The voice grows stronger. Shows me such wonders in the deep places. The foreman says be patient. The red sun rises, and we are its children.”</em></li>
+</ul>
+<p><strong>The deep shaft.</strong> Entering triggers the corruption save (DC 15 Constitution). Inside:</p>
+<ul>
+<li>The heat rises and time feels slow.</li>
+<li>Symbols are carved into the walls.</li>
+<li>The tunnel ignores the gold veins and heads straight for a faint red glow below.</li>
+<li>A DC 18 Intelligence (Arcana) check reveals a power that is ancient and alien.</li>
+</ul>
+<p>If the players stay after dark, they can watch guards lead two prisoners into the shaft. That counts as witnessing a ritual (DC 14 Wisdom).</p>
+<h3 id="blackwood-combat">4. Blackwood <span class="badge">combat</span></h3>
+<p>Blackwood finds the players in an isolated corner of the mine. He’s been watching them, and he tries to convert them first.</p>
+<ul>
+<li><em>“You feel it too, don’t you? The calling from below?”</em></li>
+<li><em>“Why fight for the Empire when you could serve something greater?”</em></li>
+</ul>
+<p>He attacks if they refuse, threaten to expose him, or try to free prisoners.</p>
+<p><strong>Blackwood</strong> fights alone at first. If the fight is loud, <strong>1d2 corrupted guards</strong> join him in round 3. If the players are losing, a sergeant arrives: they’ve been looking for the players. Drummond stays out of it, and afterward he calls it a mining accident. That calm should scare the players more than the fight did.</p>
+<h3 id="the-run-home-20-minutes">5. The Run Home <span class="time">20 minutes</span></h3>
+<p>The necromancers know what happened. Run the return as a chase. The party makes three group checks at DC 14:</p>
+<ol type="1">
+<li>Strength (Athletics), to push the carts through the mud.</li>
+<li>Wisdom (Survival), to keep to the real road.</li>
+<li>Wisdom (Perception), to see the ambushes coming.</li>
+</ol>
+<p>For each failure, choose one:</p>
+<ul>
+<li>A soldier is dragged into the trees.</li>
+<li>A cage of prisoners is lost.</li>
+<li>Every character gains one level of exhaustion.</li>
+</ul>
+<h3 id="back-in-town-10-minutes">6. Back in Town <span class="time">10 minutes</span></h3>
+<p>The players make the “night after a trip” corruption save (DC 12 Constitution). Let them talk through their options:</p>
+<ul>
+<li>Report to Reynolds.</li>
+<li>Go to the sergeants.</li>
+<li>Act alone.</li>
+<li>Wait for the ship, which comes in three days.</li>
+</ul>
+<p><strong>End on this:</strong> the prisoners from their caravan vanish overnight, and at dawn Reynolds asks for a private meeting.</p>
+<hr />
+<h2 id="session-3-the-temple">Session 3: The Temple</h2>
+<div class="lead">
+<p><em>Level 5. The players learn the truth, reach the Anchor and choose what it costs.</em></p>
+</div>
+<h3 id="reynolds-20-minutes">1. Reynolds <span class="time">20 minutes</span></h3>
+<p>The meeting is in the governor’s office. Reynolds knows exactly what the players found.</p>
+<ul>
+<li><em>“You’ve been asking questions. Digging where you shouldn’t.”</em></li>
+<li><em>“We feed a few dozen prisoners to keep hundreds alive.”</em></li>
+<li><em>“You think this is evil? Wait until you see what happens if we don’t cooperate.”</em></li>
+</ul>
+<p>He admits to the pact and the necromancers. He says the alternative is the annihilation of everyone on the island, and that the Empire doesn’t know. He asks the players to leave on the next ship and keep quiet.</p>
+<p>He doesn’t want a fight. If one starts, use his stat block, and note that he can’t bring himself to harm the Anchor’s servants.</p>
+<h3 id="the-sergeants-20-minutes">2. The Sergeants <span class="time">20 minutes</span></h3>
+<p>After hours, the sergeants meet the players in the empty tavern.</p>
+<ul>
+<li>Mikeal: <em>“We’ve suspected for months. Been gathering our own evidence. Four years of this. We’re done being complicit.”</em></li>
+<li>Damien: <em>“Our men deserve better than being fed to monsters. You want to do something about this, we’re with you.”</em></li>
+</ul>
+<p>They bring six to eight loyal soldiers and their knowledge of the island. They know that the corrupted guards’ tracks lead to an old temple on the volcano’s slope.</p>
+<h3 id="into-the-jungle-15-minutes">3. Into the Jungle <span class="time">15 minutes</span></h3>
+<p>The temple is 8 km off the road through deep jungle. The whispers grow louder, trees repeat themselves, and a character sees their own face on one of the carved totems. Nothing attacks. The jungle is letting them in.</p>
+<h3 id="the-outer-ring-30-minutes">4. The Outer Ring <span class="time">30 minutes</span></h3>
+<blockquote>
+<p><em>The jungle opens into a clearing around a stone temple older than any human presence on this island. Carved totems ring it, their geometry shifting at the edge of sight. The air thrums, and deep inside, a red glow pulses like a heartbeat.</em></p>
+</blockquote>
+<p>In the outer ring, <strong>2 necromancers</strong> and <strong>6–8 undead cannibals</strong> are sacrificing the prisoners from the players’ own caravan. Anyone who watches makes the ritual corruption save (DC 14 Wisdom). The players must choose:</p>
+<ul>
+<li><strong>Interrupt <span class="badge">combat</span>.</strong> The soldiers hold off the cannibals while the players take on the necromancers. The prisoners can be saved, but the whole temple knows the players are here.</li>
+<li><strong>Watch.</strong> The prisoners die. A DC 14 Intelligence (Arcana or Religion) check learns the rite that binds the Anchor, which is needed for the Contain option below. The players also learn the temple’s layout.</li>
+</ul>
+<h3 id="niliths-offer-20-minutes">5. Nilith’s Offer <span class="time">20 minutes</span></h3>
+<p>In the middle ring, Nilith El’Zen speaks into every mind at once. It offers each character exactly what they want, drawn from their background:</p>
+<ul>
+<li>a fighter: <em>“Victory in every battle”</em></li>
+<li>a rogue: <em>“The secrets of the world, power over life and death”</em></li>
+<li>a cleric: <em>“Your god’s true power, made manifest”</em></li>
+<li>a wizard: <em>“Knowledge beyond mortal reach”</em></li>
+</ul>
+<p>Each character makes a DC 18 Wisdom saving throw. On a failure, they advance one stage.</p>
+<h3 id="the-anchor-15-minutes">6. The Anchor <span class="time">15 minutes</span></h3>
+<p>At the bottom of the stair stands the Anchor: a crystal thirty feet tall, blindingly bright, warm and humming. Looking at it risks its Seductive Radiance (see The Anchor). Up close, the truth is plain: the thing inside is growing on sacrifices, and the mine will reach it from the other side in two or three years.</p>
+<p>The players have four choices:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr class="header">
+<th>Choice</th>
+<th>What it takes</th>
+<th>What it costs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Destroy it</strong></td>
+<td>Break the crystal (see The Anchor)</td>
+<td>The island sinks within the hour, with the town, the mine, and everyone who can’t reach a boat.</td>
+</tr>
+<tr class="even">
+<td><strong>Contain it</strong></td>
+<td>Someone holds the Anchor for 3 rounds while the others defend them. Needs the rite from the outer ring, or a DC 18 Intelligence (Arcana) check to improvise it.</td>
+<td>The one who holds it becomes its eternal warden, which is effectively death. It buys decades, not forever.</td>
+</tr>
+<tr class="odd">
+<td><strong>Escape</strong></td>
+<td>A fighting retreat to the coast, then the next ship</td>
+<td>The pact goes on and Nilith grows, but the Empire hears the truth.</td>
+</tr>
+<tr class="even">
+<td><strong>Submit</strong></td>
+<td>Accept the Anchor’s offer</td>
+<td>Everything they are.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="the-final-battle-45-minutes">7. The Final Battle <span class="time">45 minutes</span></h3>
+<p>Unless the players submit, Nilith manifests fully to stop them.</p>
+<ul>
+<li><strong>Nilith El’Zen</strong> fights in the chamber.</li>
+<li>At the start of every second round, <strong>1d4 + 2 undead cannibals</strong> pour in. The soldiers hold the stair, so only half of each wave reaches the players.</li>
+<li>In round 3, <strong>Drummond</strong> arrives with <strong>2 corrupted guard veterans</strong>, if he’s still alive.</li>
+<li>The sergeants fight beside the players. Let each of them have a moment, whether a last stand or a rescue.</li>
+</ul>
+<p><strong>If they destroy the Anchor.</strong> Once it cracks, the players have 10 rounds to get out of the chamber before it detonates. Then comes the run to the coast, while the island dies around them: three group checks at DC 15. Each failure costs a companion, and the sergeants and soldiers are the ones who stay behind so others can go.</p>
+<p><strong>If they contain it.</strong> When the third round ends, Nilith unravels, and the undead in the chamber collapse. Every surviving character’s stage goes down by 1.</p>
+<p><strong>If they escape.</strong> Use the same three group checks as for Destroy, back through the jungle. Then they must hold the town or commandeer a boat until the ship comes.</p>
+<h3 id="endings">8. Endings</h3>
+<ul>
+<li><strong>Heroic sacrifice (Destroy).</strong> The Anchor is gone and the island sinks into the sea. The survivors carry the warning home, and all corruption ends.</li>
+<li><strong>Guardian (Contain).</strong> One of the party stands forever in the crystal’s light. The mine goes on under new management, and the corruption fades but never quite vanishes. This is a hook for a return.</li>
+<li><strong>Warning (Escape).</strong> The Empire hears the truth and plans a larger assault, with the players as its advisors. The island keeps feeding the Anchor while the Empire prepares.</li>
+<li><strong>Corruption (Submit).</strong> The players become the island’s new keepers, and the villains of a future campaign.</li>
+</ul>
+<hr />
+<section id="appendix-a-the-anchor" class="statblock artifact">
+<h2>Appendix A: The Anchor</h2>
+<p><em>Artifact</em></p>
+<p>A crystal of unearthly origin, 30 feet tall and 20 feet wide at its base. It is older than any human presence on the island and older than the Empire. It is beautiful. It speaks to the mind, and what it says feels true.</p>
+<p><strong>Psychic Broadcast.</strong> The Anchor’s influence covers the whole island. It is the source of all corruption there.</p>
+<p><strong>Preservation Field.</strong> Undead and corrupted creatures within 300 feet of the Anchor have advantage on saving throws and regain 5 hit points at the start of each of their turns.</p>
+<p><strong>Seductive Radiance.</strong> A creature that looks directly at the Anchor must succeed on a DC 16 Wisdom saving throw or be charmed by it for 1 hour. While charmed, it can’t damage the Anchor or move more than 60 feet away from it.</p>
+<p><strong>Destroying the Anchor.</strong></p>
+<ul>
+<li>The Anchor has AC 10 and 150 hit points. It is immune to all damage except fire and radiant; fire unravels the power that animates the dead.</li>
+<li>In any round when three or more creatures hit it, it takes an extra 10 radiant damage.</li>
+<li>At 0 hit points it cracks, and it detonates 10 rounds later. Every creature within 600 feet must make a DC 20 Dexterity saving throw, taking 120 (16d12 + 20) radiant damage on a failure, or half as much on a success.</li>
+<li>The island then sinks into the ocean over the next hour.</li>
+</ul>
+</section>
+<hr />
+<h2 id="appendix-b-creatures">Appendix B: Creatures</h2>
+<h3 id="monster-lore">Monster Lore</h3>
+<p><strong>Undead cannibals.</strong> They aren’t mindless zombies. They’re the island’s own tribes, dead and raised by their priests with the Anchor’s power. They set ambushes, learn from each encounter, and speak in fragments of their old language. Fire stops their regeneration. The tribes were already changing long before the Empire came.</p>
+<p><strong>The necromancers.</strong> They’re the last of the tribes who are still alive: priests who found the Anchor, made a god of it, and raised their own dead to serve it. They have a deal with Reynolds, and they keep it for as long as it feeds Nilith.</p>
+<p><strong>Corrupted guards.</strong> Corruption doesn’t make people evil, it makes them certain. The guards believe that what they do is necessary and that anyone who opposes them is the real threat. Many were decent soldiers, and traces of those people never fully disappear.</p>
+<p><strong>Nilith El’Zen.</strong> The avatar is not the entity itself. It’s a projection, a mouth for something too vast to take a body. Nilith doesn’t want to destroy the world; it wants to consume it, slowly and joyfully. It doesn’t lie about what it offers, and it can deliver every promise. The price is everything the person is.</p>
+<section id="undead-cannibal" class="statblock">
+<h3>Undead Cannibal</h3>
+<p><em>Medium undead, neutral evil</em></p>
+<p><strong>Armor Class</strong> 13 (natural armor)<br />
+<strong>Hit Points</strong> 22 (4d8 + 4)<br />
+<strong>Speed</strong> 30 ft.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr class="header">
+<th>STR</th>
+<th>DEX</th>
+<th>CON</th>
+<th>INT</th>
+<th>WIS</th>
+<th>CHA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>15 (+2)</td>
+<td>12 (+1)</td>
+<td>13 (+1)</td>
+<td>6 (−2)</td>
+<td>8 (−1)</td>
+<td>4 (−3)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Skills</strong> Perception +1, Stealth +3<br />
+<strong>Damage Immunities</strong> poison<br />
+<strong>Condition Immunities</strong> exhaustion, poisoned<br />
+<strong>Senses</strong> darkvision 60 ft., passive Perception 11<br />
+<strong>Languages</strong> understands the languages it knew in life but can’t speak<br />
+<strong>Challenge</strong> 1/2 (100 XP)</p>
+<p><strong>Regeneration.</strong> The cannibal regains 3 hit points at the start of its turn. If it took fire damage since its last turn, this trait doesn’t function on its next turn. The cannibal dies only if it starts its turn with 0 hit points and doesn’t regenerate.</p>
+<p><strong>Pack Tactics.</strong> The cannibal has advantage on an attack roll against a creature if at least one of the cannibal’s allies is within 5 feet of the creature and the ally isn’t incapacitated.</p>
+<p class="sbh">
+Actions
+</p>
+<p><strong>Multiattack.</strong> The cannibal makes two attacks: one with its bite and one with its claws.</p>
+<p><strong>Bite.</strong> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft., one target. <em>Hit:</em> 5 (1d6 + 2) piercing damage.</p>
+<p><strong>Claws.</strong> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft., one target. <em>Hit:</em> 4 (1d4 + 2) slashing damage.</p>
+<p class="sbh">
+Reactions
+</p>
+<p><strong>Drag Under.</strong> When the cannibal hits a prone creature with its bite, it makes one more bite attack against that creature.</p>
+</section>
+<section id="necromancer" class="statblock">
+<h3>Necromancer</h3>
+<p><em>Medium humanoid (human), neutral evil</em></p>
+<p><em>Session 3, and glimpsed at the treeline before that. One necromancer leads each war band of eight or more cannibals.</em></p>
+<p><strong>Armor Class</strong> 13 (bone charms)<br />
+<strong>Hit Points</strong> 44 (8d8 + 8)<br />
+<strong>Speed</strong> 30 ft.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr class="header">
+<th>STR</th>
+<th>DEX</th>
+<th>CON</th>
+<th>INT</th>
+<th>WIS</th>
+<th>CHA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>9 (−1)</td>
+<td>14 (+2)</td>
+<td>12 (+1)</td>
+<td>13 (+1)</td>
+<td>16 (+3)</td>
+<td>12 (+1)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Saving Throws</strong> Wis +5<br />
+<strong>Skills</strong> Nature +3, Religion +3, Stealth +4<br />
+<strong>Senses</strong> passive Perception 13<br />
+<strong>Languages</strong> Deep Speech, the island tongue<br />
+<strong>Challenge</strong> 3 (700 XP)</p>
+<p><strong>Spellcasting.</strong> The necromancer is a 5th-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 13, +5 to hit with spell attacks). It has the following spells prepared:</p>
+<ul>
+<li>Cantrips (at will): <em>chill touch, minor illusion</em></li>
+<li>1st level (4 slots): <em>command, dissonant whispers, inflict wounds</em></li>
+<li>2nd level (3 slots): <em>blindness/deafness, hold person</em></li>
+<li>3rd level (2 slots): <em>fear, vampiric touch</em></li>
+</ul>
+<p class="sbh">
+Actions
+</p>
+<p><strong>Bone Knife.</strong> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft., one target. <em>Hit:</em> 4 (1d4 + 2) piercing damage plus 3 (1d6) necrotic damage.</p>
+<p><strong>Rally the Dead (Recharge 5–6).</strong> All undead cannibals within 30 feet that can see the necromancer regain 5 (1d10) hit points and have advantage on attack rolls until the end of the necromancer’s next turn.</p>
+<p class="sbh">
+Reactions
+</p>
+<p><strong>Flesh Shield.</strong> When the necromancer is hit by an attack, an undead cannibal within 5 feet of it takes the hit instead.</p>
+</section>
+<section id="corrupted-guard" class="statblock">
+<h3>Corrupted Guard</h3>
+<p><em>Medium humanoid (human), neutral evil</em></p>
+<p><em>Corruption stage 1–2. Sessions 1–2.</em></p>
+<p><strong>Armor Class</strong> 14 (chain shirt)<br />
+<strong>Hit Points</strong> 32 (5d8 + 10)<br />
+<strong>Speed</strong> 30 ft.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr class="header">
+<th>STR</th>
+<th>DEX</th>
+<th>CON</th>
+<th>INT</th>
+<th>WIS</th>
+<th>CHA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>14 (+2)</td>
+<td>12 (+1)</td>
+<td>14 (+2)</td>
+<td>11 (+0)</td>
+<td>7 (−2)</td>
+<td>10 (+0)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Saving Throws</strong> Str +4, Con +4<br />
+<strong>Skills</strong> Athletics +4, Perception +0<br />
+<strong>Senses</strong> darkvision 30 ft., passive Perception 10<br />
+<strong>Languages</strong> Common<br />
+<strong>Challenge</strong> 1 (200 XP)</p>
+<p><strong>Anchor’s Whisper.</strong> The guard has advantage on saving throws against being frightened, and can sense other corrupted creatures within 60 feet.</p>
+<p><strong>Loyalty Beyond Death (1/Day).</strong> If the guard drops to 0 hit points while within 30 feet of a corrupted creature of CR 3 or higher, it makes a DC 12 Constitution saving throw. On a success, it drops to 1 hit point instead.</p>
+<p class="sbh">
+Actions
+</p>
+<p><strong>Multiattack.</strong> The guard makes two longsword attacks.</p>
+<p><strong>Longsword.</strong> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft., one target. <em>Hit:</em> 6 (1d8 + 2) slashing damage.</p>
+<p><strong>Heavy Crossbow.</strong> <em>Ranged Weapon Attack:</em> +3 to hit, range 100/400 ft., one target. <em>Hit:</em> 6 (1d10 + 1) piercing damage.</p>
+</section>
+<section id="corrupted-guard-veteran" class="statblock">
+<h3>Corrupted Guard Veteran</h3>
+<p><em>Medium humanoid (human), chaotic evil</em></p>
+<p><em>Corruption stage 3–4. Session 3.</em></p>
+<p><strong>Armor Class</strong> 16 (chain mail, shield)<br />
+<strong>Hit Points</strong> 58 (9d8 + 18)<br />
+<strong>Speed</strong> 30 ft.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr class="header">
+<th>STR</th>
+<th>DEX</th>
+<th>CON</th>
+<th>INT</th>
+<th>WIS</th>
+<th>CHA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>16 (+3)</td>
+<td>11 (+0)</td>
+<td>14 (+2)</td>
+<td>10 (+0)</td>
+<td>5 (−3)</td>
+<td>11 (+0)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Saving Throws</strong> Str +5, Con +4<br />
+<strong>Skills</strong> Athletics +5, Perception +1<br />
+<strong>Damage Resistances</strong> necrotic<br />
+<strong>Senses</strong> darkvision 60 ft., passive Perception 11<br />
+<strong>Languages</strong> Common, Deep Speech (fragmentary)<br />
+<strong>Challenge</strong> 3 (700 XP)</p>
+<p><strong>Anchor’s Champion.</strong> The veteran has advantage on attack rolls while a corrupted creature of CR 5 or higher is within 60 feet of it.</p>
+<p><strong>Corruption Aura.</strong> A creature that starts its turn within 10 feet of the veteran and isn’t corrupted must succeed on a DC 13 Wisdom saving throw or advance one corruption stage.</p>
+<p class="sbh">
+Actions
+</p>
+<p><strong>Multiattack.</strong> The veteran makes three attacks: two with its longsword and one with its shortsword.</p>
+<p><strong>Longsword.</strong> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft., one target. <em>Hit:</em> 7 (1d8 + 3) slashing damage plus 4 (1d8) necrotic damage.</p>
+<p><strong>Shortsword.</strong> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft., one target. <em>Hit:</em> 5 (1d6 + 3) piercing damage.</p>
+<p class="sbh">
+Reactions
+</p>
+<p><strong>Anchor’s Resilience.</strong> When the veteran drops to 0 hit points, it makes one melee weapon attack before falling.</p>
+</section>
+<section id="guard-captain-thomas-blackwood" class="statblock">
+<h3>Guard Captain Thomas Blackwood</h3>
+<p><em>Medium humanoid (human), chaotic evil</em></p>
+<p><em>Corruption stage 4. Session 2.</em></p>
+<p><strong>Armor Class</strong> 17 (splint)<br />
+<strong>Hit Points</strong> 78 (12d8 + 24)<br />
+<strong>Speed</strong> 30 ft.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr class="header">
+<th>STR</th>
+<th>DEX</th>
+<th>CON</th>
+<th>INT</th>
+<th>WIS</th>
+<th>CHA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>17 (+3)</td>
+<td>10 (+0)</td>
+<td>15 (+2)</td>
+<td>12 (+1)</td>
+<td>3 (−4)</td>
+<td>13 (+1)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Saving Throws</strong> Str +6, Con +5<br />
+<strong>Skills</strong> Athletics +6, Intimidation +4, Perception +2<br />
+<strong>Damage Resistances</strong> necrotic, poison<br />
+<strong>Senses</strong> darkvision 60 ft., truesight 10 ft., passive Perception 12<br />
+<strong>Languages</strong> Common, Deep Speech<br />
+<strong>Challenge</strong> 5 (1,800 XP)</p>
+<p><strong>Anchor’s Awareness.</strong> Blackwood knows where every corrupted creature within 300 feet of him is, and he can’t be surprised.</p>
+<p><strong>Corruption Aura.</strong> A creature that starts its turn within 10 feet of Blackwood and isn’t corrupted must succeed on a DC 14 Wisdom saving throw or advance one corruption stage.</p>
+<p><strong>Legendary Resistance (1/Day).</strong> If Blackwood fails a saving throw, he can choose to succeed instead.</p>
+<p class="sbh">
+Actions
+</p>
+<p><strong>Multiattack.</strong> Blackwood makes three greatsword attacks.</p>
+<p><strong>Greatsword.</strong> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft., one target. <em>Hit:</em> 10 (2d6 + 3) slashing damage plus 9 (2d8) necrotic damage.</p>
+<p><strong>Corrupting Gaze (Recharge 5–6).</strong> One creature within 30 feet of Blackwood must succeed on a DC 15 Wisdom saving throw or be stunned until the end of Blackwood’s next turn and advance one corruption stage.</p>
+<p class="sbh">
+Bonus Actions
+</p>
+<p><strong>Command the Corrupted.</strong> One corrupted creature within 60 feet of Blackwood can use its reaction to make one weapon attack.</p>
+</section>
+<section id="governor-reynolds" class="statblock">
+<h3>Governor Reynolds</h3>
+<p><em>Medium humanoid (human), lawful evil</em></p>
+<p><em>Corruption stage 3. All sessions.</em></p>
+<p>Reynolds doesn’t want a fight. He wants the players to understand. Play him as a reasonable man in an unreasonable place for as long as you can.</p>
+<p><strong>Armor Class</strong> 14 (breastplate)<br />
+<strong>Hit Points</strong> 45 (7d8 + 14)<br />
+<strong>Speed</strong> 30 ft.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr class="header">
+<th>STR</th>
+<th>DEX</th>
+<th>CON</th>
+<th>INT</th>
+<th>WIS</th>
+<th>CHA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>13 (+1)</td>
+<td>12 (+1)</td>
+<td>14 (+2)</td>
+<td>15 (+2)</td>
+<td>6 (−2)</td>
+<td>16 (+3)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Saving Throws</strong> Int +4, Cha +5<br />
+<strong>Skills</strong> Deception +7, History +4, Persuasion +7<br />
+<strong>Senses</strong> darkvision 30 ft., passive Perception 8<br />
+<strong>Languages</strong> Common and three others<br />
+<strong>Challenge</strong> 3 (700 XP)</p>
+<p><strong>Anchor’s Puppet.</strong> Reynolds must succeed on a DC 18 Wisdom saving throw to take any action that would directly harm the Anchor or its servants.</p>
+<p><strong>Corrupted Intuition.</strong> Reynolds knows the corruption stage of every creature he can see.</p>
+<p class="sbh">
+Actions
+</p>
+<p><strong>Multiattack.</strong> Reynolds makes two rapier attacks, or one rapier attack and one use of Reveal the Truth.</p>
+<p><strong>Rapier.</strong> <em>Melee Weapon Attack:</em> +3 to hit, reach 5 ft., one target. <em>Hit:</em> 5 (1d8 + 1) piercing damage plus 4 (1d8) necrotic damage.</p>
+<p><strong>Reveal the Truth (Recharge 5–6).</strong> One non-hostile creature within 30 feet that can hear Reynolds must succeed on a DC 15 Wisdom saving throw or be charmed for 1 minute. While charmed, it can’t take hostile actions against Reynolds or any corrupted creature. It repeats the save at the end of each of its turns, ending the effect on a success.</p>
+</section>
+<section id="marcus-drummond-the-foreman" class="statblock">
+<h3>Marcus Drummond, the Foreman</h3>
+<p><em>Medium humanoid (human), neutral evil</em></p>
+<p><em>Corruption stage 3. Sessions 1–3.</em></p>
+<p><strong>Armor Class</strong> 15 (chain shirt, shield)<br />
+<strong>Hit Points</strong> 65 (10d8 + 20)<br />
+<strong>Speed</strong> 30 ft.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr class="header">
+<th>STR</th>
+<th>DEX</th>
+<th>CON</th>
+<th>INT</th>
+<th>WIS</th>
+<th>CHA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>17 (+3)</td>
+<td>10 (+0)</td>
+<td>14 (+2)</td>
+<td>12 (+1)</td>
+<td>4 (−3)</td>
+<td>13 (+1)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Saving Throws</strong> Str +6, Con +5<br />
+<strong>Skills</strong> Athletics +6, Intimidation +4, Perception +1<br />
+<strong>Senses</strong> darkvision 60 ft., passive Perception 11<br />
+<strong>Languages</strong> Common, Deep Speech<br />
+<strong>Challenge</strong> 4 (1,100 XP)</p>
+<p><strong>Mine’s Protector.</strong> In the mine complex, Drummond has advantage on attack rolls and saving throws.</p>
+<p><strong>Corruption Aura.</strong> A creature that starts its turn within 10 feet of Drummond and isn’t corrupted must succeed on a DC 14 Wisdom saving throw or advance one corruption stage.</p>
+<p><strong>Anchor’s Voice.</strong> Drummond can speak telepathically with any corrupted creature within 300 feet.</p>
+<p class="sbh">
+Actions
+</p>
+<p><strong>Multiattack.</strong> Drummond makes three warhammer attacks.</p>
+<p><strong>Warhammer.</strong> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft., one target. <em>Hit:</em> 7 (1d8 + 3) bludgeoning damage plus 7 (2d6) necrotic damage.</p>
+<p><strong>Call the Corrupted (1/Day).</strong> 1d4 corrupted guards answer Drummond’s call and arrive at the start of his next turn.</p>
+<p class="sbh">
+Bonus Actions
+</p>
+<p><strong>Tactical Command.</strong> One corrupted creature within 60 feet of Drummond has advantage on its next attack roll.</p>
+</section>
+<section id="nilith-elzen-avatar-of-the-anchor" class="statblock">
+<h3>Nilith El’Zen, Avatar of the Anchor</h3>
+<p><em>Large aberration, chaotic evil</em></p>
+<p><em>Session 3.</em></p>
+<p>The players should never meet Nilith without warning. By the time they reach the temple, they should have heard it in their heads and seen it at the edge of their dreams. When it appears, it should feel like something they already know. Speak to each character on their own, using their background. It knows what they want. It always has.</p>
+<p><strong>Armor Class</strong> 18 (natural armor)<br />
+<strong>Hit Points</strong> 195 (17d10 + 102)<br />
+<strong>Speed</strong> 40 ft., fly 20 ft. (hover)</p>
+<div class="tablewrap"><table>
+<thead>
+<tr class="header">
+<th>STR</th>
+<th>DEX</th>
+<th>CON</th>
+<th>INT</th>
+<th>WIS</th>
+<th>CHA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>22 (+6)</td>
+<td>14 (+2)</td>
+<td>22 (+6)</td>
+<td>20 (+5)</td>
+<td>18 (+4)</td>
+<td>20 (+5)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Saving Throws</strong> Str +11, Con +11, Wis +9, Cha +10<br />
+<strong>Skills</strong> Arcana +10, Insight +9, Perception +9<br />
+<strong>Damage Resistances</strong> bludgeoning, piercing, and slashing from nonmagical attacks<br />
+<strong>Damage Immunities</strong> necrotic, poison, psychic<br />
+<strong>Condition Immunities</strong> charmed, exhaustion, frightened, paralyzed, poisoned<br />
+<strong>Senses</strong> truesight 120 ft., blindsight 60 ft., passive Perception 19<br />
+<strong>Languages</strong> all, telepathy 300 ft.<br />
+<strong>Challenge</strong> 14 (11,500 XP)</p>
+<p><strong>Legendary Resistance (3/Day).</strong> If Nilith fails a saving throw, it can choose to succeed instead.</p>
+<p><strong>Magic Resistance.</strong> Nilith has advantage on saving throws against spells and other magical effects.</p>
+<p><strong>Anchor’s Conduit.</strong> While within 100 feet of the Anchor, Nilith regains 15 hit points at the start of each of its turns.</p>
+<p><strong>Eldritch Presence.</strong> A creature that starts its turn within 30 feet of Nilith and can see it must succeed on a DC 18 Wisdom saving throw or be frightened until the start of its next turn and advance one corruption stage.</p>
+<p class="sbh">
+Actions
+</p>
+<p><strong>Multiattack.</strong> Nilith makes four attacks, in any combination of Arm Strike and Corruption Touch.</p>
+<p><strong>Arm Strike.</strong> <em>Melee Weapon Attack:</em> +11 to hit, reach 10 ft., one target. <em>Hit:</em> 15 (2d8 + 6) bludgeoning damage plus 9 (2d8) necrotic damage.</p>
+<p><strong>Corruption Touch.</strong> <em>Melee Weapon Attack:</em> +11 to hit, reach 10 ft., one target. <em>Hit:</em> 18 (2d12 + 5) psychic damage, and the target must succeed on a DC 18 Wisdom saving throw or advance two corruption stages.</p>
+<p><strong>Whisper of Desire (Recharge 5–6).</strong> Each creature within 60 feet of Nilith must succeed on a DC 18 Wisdom saving throw or be incapacitated until the end of Nilith’s next turn, lost in perfect visions of what it wants most.</p>
+<p><strong>Reality Tear (1/Day).</strong> Nilith tears open a 20-foot-radius sphere centered on a point within 60 feet. Each creature in the sphere must make a DC 18 Constitution saving throw, taking 36 (8d8) necrotic damage on a failure, or half as much on a success. Until the start of Nilith’s next turn, the area is difficult terrain, and Wisdom saving throws made in it have disadvantage.</p>
+<p class="sbh">
+Bonus Actions
+</p>
+<p><strong>Advance the Harvest.</strong> Every undead cannibal within 120 feet of Nilith that can perceive it moves up to its speed toward the nearest creature that isn’t corrupted, without provoking opportunity attacks.</p>
+<p class="sbh">
+Legendary Actions
+</p>
+<p>Nilith can take 3 legendary actions, choosing from the options below. It can use only one option at a time, and only at the end of another creature’s turn. Nilith regains spent legendary actions at the start of its turn.</p>
+<p><strong>Arm Strike.</strong> Nilith makes one Arm Strike.</p>
+<p><strong>Step Outside (Costs 2 Actions).</strong> Nilith teleports up to 60 feet to an unoccupied space it can see.</p>
+<p><strong>Whisper of Madness (Costs 2 Actions).</strong> One creature within 60 feet of Nilith must succeed on a DC 18 Wisdom saving throw or use its reaction to make one weapon attack against the nearest ally.</p>
+</section>
+<section id="sergeant-mikeal-zentu" class="statblock">
+<h3>Sergeant Mikeal Zentu</h3>
+<p><em>Medium humanoid (human), neutral good</em></p>
+<p><strong>Armor Class</strong> 16 (breastplate)<br />
+<strong>Hit Points</strong> 65 (10d8 + 20)<br />
+<strong>Speed</strong> 35 ft.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr class="header">
+<th>STR</th>
+<th>DEX</th>
+<th>CON</th>
+<th>INT</th>
+<th>WIS</th>
+<th>CHA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>14 (+2)</td>
+<td>16 (+3)</td>
+<td>14 (+2)</td>
+<td>12 (+1)</td>
+<td>14 (+2)</td>
+<td>13 (+1)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Saving Throws</strong> Dex +6, Wis +5<br />
+<strong>Skills</strong> Athletics +5, Insight +5, Perception +5, Survival +5<br />
+<strong>Senses</strong> passive Perception 15<br />
+<strong>Languages</strong> Common and two others<br />
+<strong>Challenge</strong> 4 (1,100 XP)</p>
+<p><strong>Quick Draw.</strong> Mikeal draws his scimitar as part of an attack. On a turn when he draws it, his first hit deals an extra 7 (2d6) damage.</p>
+<p class="sbh">
+Actions
+</p>
+<p><strong>Multiattack.</strong> Mikeal makes three scimitar attacks.</p>
+<p><strong>Scimitar.</strong> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft., one target. <em>Hit:</em> 6 (1d6 + 3) slashing damage.</p>
+<p class="sbh">
+Bonus Actions
+</p>
+<p><strong>Tactical Coordination.</strong> One creature Mikeal chooses within 30 feet can move up to half its speed without provoking opportunity attacks.</p>
+<p class="sbh">
+Reactions
+</p>
+<p><strong>Shield of the Vanguard.</strong> When an ally within 5 feet of Mikeal is hit by an attack, Mikeal takes the damage instead.</p>
+</section>
+<section id="sergeant-damien-von-hans" class="statblock">
+<h3>Sergeant Damien von Hans</h3>
+<p><em>Medium humanoid (human), neutral</em></p>
+<p><strong>Armor Class</strong> 15 (studded leather)<br />
+<strong>Hit Points</strong> 75 (10d8 + 30)<br />
+<strong>Speed</strong> 30 ft.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr class="header">
+<th>STR</th>
+<th>DEX</th>
+<th>CON</th>
+<th>INT</th>
+<th>WIS</th>
+<th>CHA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>18 (+4)</td>
+<td>14 (+2)</td>
+<td>17 (+3)</td>
+<td>10 (+0)</td>
+<td>10 (+0)</td>
+<td>14 (+2)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Saving Throws</strong> Str +7, Con +6<br />
+<strong>Skills</strong> Athletics +7, Intimidation +5, Perception +3<br />
+<strong>Senses</strong> passive Perception 13<br />
+<strong>Languages</strong> Common, Dwarvish<br />
+<strong>Challenge</strong> 4 (1,100 XP)</p>
+<p class="sbh">
+Actions
+</p>
+<p><strong>Multiattack.</strong> Damien makes three attacks: two with his handaxes and one with his hand crossbow, or three with his handaxes.</p>
+<p><strong>Handaxe +2.</strong> <em>Melee or Ranged Weapon Attack:</em> +8 to hit, reach 5 ft. or range 20/60 ft., one target. <em>Hit:</em> 8 (1d6 + 5) slashing damage.</p>
+<p><strong>Hand Crossbow.</strong> <em>Ranged Weapon Attack:</em> +5 to hit, range 30/120 ft., one target. <em>Hit:</em> 5 (1d6 + 2) piercing damage, and the target is coated in jungle spider venom (see Appendix C).</p>
+<p class="sbh">
+Bonus Actions
+</p>
+<p><strong>Aggressive.</strong> Damien moves up to his speed toward a hostile creature.</p>
+<p><strong>Battle Cry (Recharge 5–6).</strong> Every ally within 30 feet of Damien has advantage on its next attack roll before the start of Damien’s next turn.</p>
+</section>
+<section id="tradesman-beclu" class="statblock">
+<h3>Tradesman Beclu</h3>
+<p><em>Medium humanoid (human), neutral good</em></p>
+<p>Beclu won’t fight if he can help it. If he must, he stays back and supports the party. He has hidden here for three years, and he is tired of hiding.</p>
+<p><strong>Armor Class</strong> 12<br />
+<strong>Hit Points</strong> 38 (7d8 + 7)<br />
+<strong>Speed</strong> 30 ft.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr class="header">
+<th>STR</th>
+<th>DEX</th>
+<th>CON</th>
+<th>INT</th>
+<th>WIS</th>
+<th>CHA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>8 (−1)</td>
+<td>14 (+2)</td>
+<td>13 (+1)</td>
+<td>17 (+3)</td>
+<td>14 (+2)</td>
+<td>12 (+1)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Saving Throws</strong> Int +5, Wis +4<br />
+<strong>Skills</strong> Arcana +5, Medicine +4, Nature +5, Persuasion +3<br />
+<strong>Senses</strong> passive Perception 12<br />
+<strong>Languages</strong> Common, Draconic, Elvish<br />
+<strong>Challenge</strong> 2 (450 XP)</p>
+<p class="sbh">
+Actions
+</p>
+<p><strong>Dagger.</strong> <em>Melee or Ranged Weapon Attack:</em> +4 to hit, reach 5 ft. or range 20/60 ft., one target. <em>Hit:</em> 4 (1d4 + 2) piercing damage.</p>
+<p><strong>Healing Compound (3/Day).</strong> Beclu throws a compound at a point within 30 feet. Each creature within 10 feet of that point regains 10 (2d8 + 1) hit points.</p>
+<p><strong>Alchemical Grenade (3/Day).</strong> Beclu throws a grenade at a point within 60 feet. Each creature within 5 feet of that point must succeed on a DC 13 Dexterity saving throw or take 10 (3d6) acid or fire damage (Beclu’s choice).</p>
+<p><strong>Suppression Compound (1/Day).</strong> One creature within 5 feet of Beclu gets the benefit of Beclu’s Suppression Compound (see Reducing Corruption).</p>
+<p class="sbh">
+Bonus Actions
+</p>
+<p><strong>Alchemical Expertise.</strong> Beclu gives a potion to himself or to an adjacent creature.</p>
+</section>
+<h2 id="appendix-c-beclus-goods">Appendix C: Beclu’s Goods</h2>
+<p>Prices are in silver pieces. The players’ version is Handout 2.</p>
+<p><strong>Healing Draught.</strong> <em>Potion, common.</em> You regain 2d4 + 2 hit points. (25 sp)</p>
+<p><strong>Flask of Fire.</strong> <em>Adventuring gear.</em> This works as alchemist’s fire. It is the best thing on the island against the cannibals’ regeneration. (30 sp)</p>
+<p><strong>Blessed Salt (1 lb.).</strong> <em>Wondrous item, common.</em> Scatter it in a 10-foot line or ring. An undead creature must succeed on a DC 13 Wisdom saving throw to cross it or enter it. The salt loses its potency after 1 hour, or at once if it gets wet with running water. (10 sp)</p>
+<p><strong>Courage Elixir.</strong> <em>Potion, uncommon.</em> For 10 minutes, you have advantage on saving throws against being frightened and on corruption saves. (35 sp)</p>
+<p><strong>Jungle Spider Venom.</strong> <em>Poison, 10 doses.</em> A creature hit by a weapon coated in the venom must succeed on a DC 14 Constitution saving throw or be poisoned for 1 minute. While poisoned this way, it has disadvantage on attack rolls and ability checks, and it repeats the save at the end of each of its turns, ending the effect on a success. Coating a weapon or 10 pieces of ammunition takes an action. (25 sp)</p>
+<p><strong>Beclu’s Suppression Compound.</strong> <em>Potion, rare. Not for sale.</em> Beclu gives out one or two doses to players who have earned his trust. It works as described under Reducing Corruption.</p>
+<hr />
+<h2 id="appendix-d-encounters-and-scaling">Appendix D: Encounters and Scaling</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr class="header">
+<th>Session</th>
+<th>Encounter</th>
+<th>Enemies</th>
+<th>Difficulty</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>The river crossing</td>
+<td>6 undead cannibals</td>
+<td>Hard for four 3rd-level characters</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Blackwood</td>
+<td>Blackwood, then 1d2 corrupted guards from round 3</td>
+<td>Medium alone, deadly once the guards join. A sergeant can come to the rescue.</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>The outer ring (optional)</td>
+<td>2 necromancers, 6–8 undead cannibals</td>
+<td>Medium if the soldiers hold the cannibals, deadly without them</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>The final battle</td>
+<td>Nilith, waves of undead cannibals, Drummond and 2 veterans</td>
+<td>Beyond deadly on purpose</td>
+</tr>
+</tbody>
+</table></div>
+<p>The final battle is meant to exceed what a 5th-level party can handle. The sergeants (CR 4 each), the soldiers, and fire and radiant damage against the Anchor are what make it survivable. It should still feel desperate.</p>
+<p><strong>Scaling.</strong></p>
+<ul>
+<li>Three players: cut the enemies by a quarter.</li>
+<li>Four or five players: run it as written.</li>
+<li>Six or more players: add a quarter more enemies.</li>
+</ul>
+  <footer>Cannibal Island · a D&amp;D 5e adventure on <a href="/">digisault</a> · <a href="handouts.html">Handouts &amp; maps</a></footer>
+</div>
+</div>
+<script>
+(function(){var links={};document.querySelectorAll('aside.toc a').forEach(function(a){links[a.getAttribute('href').slice(1)]=a});
+var cur=null,io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&links[e.target.id]){if(cur)cur.classList.remove('on');cur=links[e.target.id];cur.classList.add('on')}})},{rootMargin:'0px 0px -75% 0px'});
+document.querySelectorAll('h2[id],h3[id]').forEach(function(h){io.observe(h)});
+document.querySelectorAll('details.toc a').forEach(function(a){a.addEventListener('click',function(){a.closest('details').open=false})})})();
+</script>
+</body>
+</html>

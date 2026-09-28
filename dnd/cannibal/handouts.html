@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cannibal Island: Handouts · digisault</title>
+  <meta name="description" content="Player handouts and maps for Cannibal Island.">
+  <style>
+:root{--ink:#222;--muted:#666;--accent:#7a2e1d;--paper:#faf8f3;--card:#fffdf8;--rule:#d8cfbf;--shade:#f3ede2;--jungle:#3d5a3a}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:1rem}
+body{font-family:Georgia,'Times New Roman',serif;margin:0;padding:3rem 1rem;line-height:1.6;color:var(--ink);background:var(--paper)}
+a{color:var(--accent)}
+.wrap{max-width:44rem;margin:0 auto}
+nav.crumbs{font-size:.95rem;margin-bottom:2rem;color:var(--muted)}
+header.title h1{font-size:2.6rem;line-height:1.1;margin:0 0 .4rem;letter-spacing:-.01em}
+header.title .tagline{margin:0;color:var(--muted);font-style:italic}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:1rem 0 .5rem;padding:0;list-style:none}
+.chips li{font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;border:1px solid var(--rule);background:var(--card);padding:.15rem .6rem;border-radius:2px;margin:0}
+.chips li.go{border-color:var(--accent)}
+h2{margin-top:3rem;font-size:1.5rem;border-bottom:1px solid var(--rule);padding-bottom:.3rem}
+h3{margin-top:2.2rem;font-size:1.15rem}
+h4{margin-top:1.5rem;font-size:1rem}
+h2[id^="session-"]{border:0;background:var(--accent);color:#fff;padding:.7rem 1rem;margin-top:4rem;font-size:1.45rem;border-radius:2px}
+.lead{font-style:italic;color:#444;border-left:3px solid var(--accent);padding:.1rem 0 .1rem 1rem;margin:1rem 0 1.5rem}
+.lead p{margin:0}
+.time{font-weight:normal;font-size:.78em;color:var(--muted);margin-left:.4rem;font-family:system-ui,sans-serif}
+.badge{font-family:system-ui,sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:var(--accent);color:#fff;padding:.12rem .45rem;border-radius:2px;vertical-align:.2em;margin-left:.35rem}
+blockquote{margin:1.25rem 0;padding:1rem 1.2rem;background:var(--shade);border-left:4px solid var(--jungle);font-style:italic;position:relative}
+blockquote::before{content:"Read aloud";display:block;font-family:system-ui,sans-serif;font-style:normal;font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--jungle);margin-bottom:.35rem}
+blockquote p{margin:0}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.45rem .6rem;border-bottom:1px solid var(--rule)}
+th{font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--accent)}
+tbody tr:nth-child(even){background:rgba(0,0,0,.018)}
+.tablewrap{overflow-x:auto}
+hr{border:0;height:1px;background:var(--rule);margin:2.5rem 0}
+code,pre{font-family:ui-monospace,'DejaVu Sans Mono',Menlo,Consolas,monospace}
+pre{background:var(--card);border:1px solid var(--rule);padding:1rem;overflow-x:auto;font-size:.82rem;line-height:1.2}
+.statblock{background:var(--card);border-top:4px solid var(--accent);border-bottom:4px solid var(--accent);box-shadow:0 1px 3px rgba(0,0,0,.12);padding:.2rem 1.2rem .8rem;margin:2rem 0;font-size:.93rem;break-inside:avoid}
+.statblock h3{color:var(--accent);font-size:1.4rem;margin:.8rem 0 0;font-variant:small-caps;letter-spacing:.02em}
+.statblock h3+p{margin-top:0;color:var(--muted)}
+.statblock p{margin:.45rem 0}
+.statblock table{width:auto;min-width:100%;text-align:center;margin:.6rem 0;border-top:2px solid var(--accent);border-bottom:2px solid var(--accent)}
+.statblock th,.statblock td{text-align:center;border:0;padding:.2rem .3rem}
+.statblock th{color:var(--accent);border:0}
+.statblock tbody tr:nth-child(even){background:none}
+.statblock p.sbh{color:var(--accent);font-variant:small-caps;font-size:1.15rem;border-bottom:1px solid var(--accent);margin:1rem 0 .4rem;padding-bottom:.1rem}
+.statblock ul{margin:.2rem 0 .5rem;padding-left:1.2rem}.statblock li{margin:.1rem 0}
+.artifact{border-top-color:var(--jungle);border-bottom-color:var(--jungle)}
+.artifact h2{border:0;margin-top:.6rem;color:var(--jungle)}
+.handout{background:var(--card);border:1px solid var(--rule);box-shadow:0 1px 3px rgba(0,0,0,.08);padding:.3rem 1.4rem 1rem;margin:2rem 0;break-inside:avoid}
+.handout h2{border:0;margin-top:1rem;font-variant:small-caps;color:var(--accent)}
+.handout.dm{background:var(--shade)}
+.toc ul{list-style:none;padding-left:0;margin:0}
+.toc ul ul{padding-left:.9rem;font-size:.9em}
+.toc li{margin:.2rem 0}
+.toc a{text-decoration:none;color:var(--ink)}
+.toc a:hover,.toc a.on{color:var(--accent)}
+.toc a.on{font-weight:bold}
+details.toc{background:var(--card);border:1px solid var(--rule);padding:.6rem 1rem;margin:1.5rem 0}
+details.toc summary{cursor:pointer;font-variant:small-caps;letter-spacing:.04em}
+aside.toc{display:none}
+footer{margin-top:4rem;padding-top:1rem;border-top:1px solid var(--rule);font-size:.9rem;color:var(--muted)}
+@media (min-width:1180px){
+  .layout{display:grid;grid-template-columns:15rem 44rem;gap:3rem;justify-content:center}
+  .layout .wrap{margin:0}
+  aside.toc{display:block;position:sticky;top:1.5rem;align-self:start;max-height:calc(100vh - 3rem);overflow-y:auto;font-size:.88rem;padding-top:5.5rem}
+  aside.toc::before{content:"Contents";display:block;font-variant:small-caps;letter-spacing:.06em;color:var(--muted);margin-bottom:.5rem}
+  details.toc{display:none}
+}
+@media (max-width:600px){header.title h1{font-size:2rem}body{padding:2rem 1rem}}
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  nav.crumbs,.toc,footer,.chips li.go{display:none!important}
+  .layout{display:block}
+  h2[id^="session-"]{break-before:page;background:none;color:var(--accent);border-bottom:2px solid var(--accent)}
+  .handout{break-inside:avoid;box-shadow:none}
+  a{color:inherit;text-decoration:none}
+}</style>
+</head>
+<body>
+<div class="layout">
+
+<div class="wrap">
+  <nav class="crumbs"><a href="/">digisault</a> › <a href="./">Cannibal Island</a> › Handouts</nav>
+  <header class="title">
+    <h1>Handouts &amp; Maps</h1>
+    <p class="tagline">Cannibal Island · Handouts 1–4 are for the players; Handout 5 and the maps are for the DM</p>
+    <ul class="chips"><li class="go"><a href="./">← The adventure</a></li></ul>
+  </header>
+
+<section id="handout-1-ship-rumors" class="handout">
+<h2>Handout 1: Ship Rumors</h2>
+<p><em>Session 1, on the ship. Roll 1d8, or pick one that fits a character.</em></p>
+<div class="tablewrap"><table>
+<thead>
+<tr class="header">
+<th>d8</th>
+<th>Rumor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>“Ships that dock there always come back lighter than they should. Gold’s heavy, but not <em>that</em> heavy.”</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>“My cousin’s been there twice. Won’t talk about it, just stares at his hands and drinks.”</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>“They say the jungle drums play at night, but they don’t sound like any drums I’ve heard.”</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>“The Empire pays ten times normal wages for guard duty there. Makes you wonder why.”</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>“Last crew that stayed overnight… half of them came back talking in their sleep.”</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>“The water there tastes wrong. Sweet, but wrong.”</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>“Governor Reynolds used to be a war hero. Now he just stares at the jungle and counts gold.”</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>“They mine gold there, sure. But what if they’re digging for something else too?”</td>
+</tr>
+</tbody>
+</table></div>
+</section>
+<section id="handout-2-beclus-price-list" class="handout">
+<h2>Handout 2: Beclu’s Price List</h2>
+<p><em>Session 1. Prices in silver pieces.</em></p>
+<div class="tablewrap"><table>
+<thead>
+<tr class="header">
+<th>Item</th>
+<th>Effect</th>
+<th>Price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Healing Draught</td>
+<td>Restores 2d4 + 2 hit points</td>
+<td>25 sp</td>
+</tr>
+<tr class="even">
+<td>Flask of Fire</td>
+<td>Works as alchemist’s fire</td>
+<td>30 sp</td>
+</tr>
+<tr class="odd">
+<td>Blessed Salt (1 lb.)</td>
+<td>Makes a line or ring the dead don’t like to cross</td>
+<td>10 sp</td>
+</tr>
+<tr class="even">
+<td>Courage Elixir</td>
+<td>Steadies the nerves for 10 minutes</td>
+<td>35 sp</td>
+</tr>
+<tr class="odd">
+<td>Jungle Spider Venom (10 doses)</td>
+<td>Coats blades or bolts, and weakens whoever is hit</td>
+<td>25 sp</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>“Carry fire. Always. They don’t like it.”</em></p>
+</section>
+<section id="handout-3-overheard-in-the-tavern" class="handout">
+<h2>Handout 3: Overheard in the Tavern</h2>
+<p><em>Session 1. Read out a few, or hand them over as scraps of conversation.</em></p>
+<ul>
+<li><em>“Third year here. Lost twelve men last month. They don’t tell you about the sounds they make when they take ’em.”</em></li>
+<li><em>“The mine guards… they watch us now. Used to be the other way around.”</em></li>
+<li><em>“Reynolds knows. Has to know. Man’s not stupid, just… careful.”</em></li>
+<li><em>“Damien and Mikeal, they’re good men. But even good men can only take so much of this place.”</em></li>
+<li><em>“Don’t trust the ones who’ve been down the deep shafts. Something in their eyes ain’t right.”</em></li>
+<li><em>“Keep moving in the jungle. Soon as you stop, they know where you are.”</em></li>
+<li><em>“If you ever see the crystal, don’t look at it. It looks back.”</em></li>
+<li><em>“…shipment goes out tonight, usual route…”</em></li>
+<li><em>“…foreman’s orders, no questions asked…”</em></li>
+<li><em>“…the red sun rises, and the harvest begins…”</em></li>
+</ul>
+</section>
+<section id="handout-4-jungle-signs" class="handout">
+<h2>Handout 4: Jungle Signs</h2>
+<p><em>Sessions 1–3, on the road. Drop one in whenever the tension sags.</em></p>
+<ul>
+<li>Rustling that stops the moment someone looks toward it.</li>
+<li>Animal calls that echo from impossible directions.</li>
+<li>Whispers in a language that sounds almost familiar.</li>
+<li>Rhythmic tapping that might be drums, or might not.</li>
+<li>Symbols carved deep into the bark of trees.</li>
+<li>Paths that seem to shift when nobody is looking at them.</li>
+<li>Smoke rising where there’s no fire.</li>
+<li>Gnawed bones laid out in careful patterns.</li>
+<li>Tracks that are almost human.</li>
+<li>Plants growing in spirals.</li>
+</ul>
+</section>
+<section id="handout-5-corruption-tracker-dm" class="handout dm">
+<h2>Handout 5: Corruption Tracker (DM)</h2>
+<pre><code>Character: ______________________     Stage: 0  1  2  3  4  5
+
+Exposure                                   Save          Result
+[ ] First night on the island              DC 10 Wis     ______
+[ ] Night after the first run (S1)         DC 12 Con     ______
+[ ] Deep shaft (S2)                        DC 15 Con     ______
+[ ] Ritual witnessed (S2 / S3)             DC 14 Wis     ______
+[ ] Night after the second run (S2)        DC 12 Con     ______
+[ ] Nilith&#39;s offer (S3)                    DC 18 Wis     ______
+[ ] Auras / attacks                        per stat block ______
+
+Symptoms shown so far:
+_________________________________________________________________</code></pre>
+</section>
+<hr />
+<h2 id="maps">Maps</h2>
+<h3 id="the-town">The Town</h3>
+<pre><code>        N
+        ↑
+   [Watchtower]              [Watchtower]
+   ╔══════════════════════════════════════╗  ← palisade (fresh repairs)
+   ║ 1 Governor&#39;s house    2 Armory       ║
+   ║                                      ║
+   ║ 3 Well + altar        5 Beclu        ║
+   ║                                      ║
+   ║       4 Underground tavern           ║
+   ║    (wooden houses and workshops)     ║
+   ╚══════════════════════════════════════╝
+   [Watchtower]    6 Docks   [Watchtower]
+                    ~~~~</code></pre>
+<ol type="1">
+<li><strong>Governor’s house</strong> (stone): office, cells and Reynolds’s quarters.</li>
+<li><strong>Armory</strong> (stone).</li>
+<li><strong>Well</strong>: fresh water, and an altar of offerings.</li>
+<li><strong>Underground tavern</strong>: cool and dim, where the veterans drink.</li>
+<li><strong>Beclu’s shop</strong>.</li>
+<li><strong>Docks</strong>: room for two medium ships.</li>
+</ol>
+<p>The six watchtowers are 15 feet tall: two face the jungle, two the docks, and two the flanks.</p>
+<h3 id="the-road-and-the-island">The Road and the Island</h3>
+<pre><code>            ▲ Volcano
+     Mine ■ │ ╲
+            │   ╲   Temple (jungle slope, 8 km off the road)
+       mud  ░
+            │
+     river  ≈≈≈≈  (the bridge)
+            │
+    broken  ▒
+    ground  │
+            ■ Town
+          ~~~~~~ sea</code></pre>
+<p>The road is about 25 km one way, which takes all day, dawn to dusk. It passes three danger spots: broken ground, the river bridge and the mud. There are no safe places outside the walls.</p>
+<h3 id="the-mine">The Mine</h3>
+<pre><code>             Volcano
+   ┌──────────────────────────────┐
+   │ open pits    x   x   x       │
+   │ foreman&#39;s office             │
+   │ guard barracks               │
+   │ slave quarters (chained)     │
+   │ deep shaft  ↓ ↓ ↓            │  → toward the Anchor
+   └──────────────────────────────┘
+             main gate</code></pre>
+<p>The mine has five permanent guards and rotating patrols. The deep shaft leaves the gold veins and heads straight down toward a red glow.</p>
+<h3 id="the-temple">The Temple</h3>
+<pre><code>      Anchor chamber (bottom of the stair)
+                  ▲
+   ┌──────────────────────────────┐
+   │        middle ring: Nilith   │
+   │                              │
+   │ outer ring: ritual circles,  │
+   │ altars and totems            │
+   └──────────────────────────────┘
+          jungle approaches</code></pre>
+<p>The temple has raised platforms, narrow passages between the ritual areas, fire pits, and totems to take cover behind. The stair from the middle ring descends into the volcano, to the Anchor.</p>
+  <footer>Cannibal Island · a D&amp;D 5e adventure on <a href="/">digisault</a> · <a href="./">Back to the adventure</a></footer>
+</div>
+</div>
+
+</body>
+</html>

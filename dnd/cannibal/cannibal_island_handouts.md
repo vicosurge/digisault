@@ -88,16 +88,16 @@ _________________________________________________________________
 ```
         N
         ↑
-   [Watchtower]            [Watchtower]
-   ═══════════════════════════════════   ← palisade (fresh repairs)
-   ║  1 Governor's house   2 Armory    ║
-   ║                                   ║
-   ║  3 Well + altar     5 Beclu       ║
-   ║                                   ║
-   ║        4 Underground tavern       ║
-   ║   (wooden houses and workshops)   ║
-   ═══════════════════════════════════
-   [Watchtower]   6 Docks   [Watchtower]
+   [Watchtower]              [Watchtower]
+   ╔══════════════════════════════════════╗  ← palisade (fresh repairs)
+   ║ 1 Governor's house    2 Armory       ║
+   ║                                      ║
+   ║ 3 Well + altar        5 Beclu        ║
+   ║                                      ║
+   ║       4 Underground tavern           ║
+   ║    (wooden houses and workshops)     ║
+   ╚══════════════════════════════════════╝
+   [Watchtower]    6 Docks   [Watchtower]
                     ~~~~
 ```
 
@@ -115,13 +115,13 @@ The six watchtowers are 15 feet tall: two face the jungle, two the docks, and tw
 ```
             ▲ Volcano
      Mine ■ │ ╲
-            │   ╲  Temple (on the jungle slope, 8 km off the road)
-      mud   ░     ╲
+            │   ╲   Temple (jungle slope, 8 km off the road)
+       mud  ░
             │
-      river ≈≈≈≈ (the bridge)
+     river  ≈≈≈≈  (the bridge)
             │
-  broken    ▒
-  ground    │
+    broken  ▒
+    ground  │
             ■ Town
           ~~~~~~ sea
 ```
@@ -131,15 +131,15 @@ The road is about 25 km one way, which takes all day, dawn to dusk. It passes th
 ### The Mine
 
 ```
-          Volcano
-   ┌───────────────────────┐
-   │  open pits  ⚒  ⚒  ⚒   │
-   │  foreman's office      │
-   │  guard barracks        │
-   │  slave quarters  ⛓     │
-   │  deep shaft ↓↓↓        │ → toward the Anchor
-   └────────┬──────────────┘
-          main gate
+             Volcano
+   ┌──────────────────────────────┐
+   │ open pits    x   x   x       │
+   │ foreman's office             │
+   │ guard barracks               │
+   │ slave quarters (chained)     │
+   │ deep shaft  ↓ ↓ ↓            │  → toward the Anchor
+   └──────────────────────────────┘
+             main gate
 ```
 
 The mine has five permanent guards and rotating patrols. The deep shaft leaves the gold veins and heads straight down toward a red glow.
@@ -147,15 +147,15 @@ The mine has five permanent guards and rotating patrols. The deep shaft leaves t
 ### The Temple
 
 ```
-       Anchor chamber (bottom of the stair)
-                 ▼
-   ┌─────────────────────────┐
-   │   middle ring: Nilith    │
-   │                          │
-   │ outer ring: ritual       │
-   │ circles, altars, totems  │
-   └─────────────────────────┘
-        jungle approaches
+      Anchor chamber (bottom of the stair)
+                  ▲
+   ┌──────────────────────────────┐
+   │        middle ring: Nilith   │
+   │                              │
+   │ outer ring: ritual circles,  │
+   │ altars and totems            │
+   └──────────────────────────────┘
+          jungle approaches
 ```
 
 The temple has raised platforms, narrow passages between the ritual areas, fire pits, and totems to take cover behind. The stair from the middle ring descends into the volcano, to the Anchor.
