@@ -1,6 +1,20 @@
 # Cannibal Island Campaign Guide
 *A 3-4 Session D&D 5e Horror Adventure*
 
+## Introduction
+
+Cannibal Island is a psychological horror adventure rooted in colonial dread. The players arrive on a remote mining outpost run by an expanding empire. On the surface it is a routine job: guard duty, caravan escort, good pay. Within a session, something is clearly wrong. Within two, they know what it is. By the end, they face a choice that has no clean answer.
+
+The adventure works because its horror is structural, not decorative. The violence and the cosmic threat are real, but the true weight comes from moral complicity — from the players realizing they have been participating in something terrible since the moment they accepted their first paycheck. Every option in the final session costs something that cannot be recovered.
+
+**Adventure Structure.** Cannibal Island is written in four sessions of approximately three to four hours each. Sessions 1 and 2 establish atmosphere and introduce mechanics. Session 3 forces the moral reckoning. Session 4 delivers the confrontation and resolution. It can be compressed to three sessions by combining Sessions 2 and 3 at the cost of some investigative depth.
+
+**Companion Documents.** This guide covers setting, structure, and narrative. The session prep sheets provide scene-by-scene DM notes, read-aloud text, and NPC dialogue. The appendix provides the Corruption mechanic, all stat blocks, and new equipment. The maps and handouts document provides everything players receive at the table.
+
+**Scaling.** The adventure is written for 4–5 characters of 3rd–5th level. Combat encounter adjustments for different party sizes are in the appendix. The Corruption mechanic works independently of level and is the primary source of escalating pressure regardless of party power.
+
+---
+
 ## Campaign Overview
 
 **Theme:** Colonial horror with cosmic undertones, moral ambiguity, and the price of survival
@@ -16,8 +30,6 @@ A 60km diameter jungle island serving as a remote mining operation for the expan
 
 ### Session 1: Arrival & First Impressions
 **Goals:** Character introduction, establish atmosphere, initial investigation
-
-*The document is already in Markdown format - it uses proper Markdown syntax with headers (#), bold text (**), italics (*), lists (-), and other standard Markdown formatting.*
 
 #### The Ship Journey (Opening)
 - **Duration:** 2-3 days at sea
